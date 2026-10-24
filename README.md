@@ -19,6 +19,7 @@ At home I run six Talos clusters on Proxmox the same way: everything through Git
 
 <samp>
 <a href="https://giovanni.dev.br">giovanni.dev.br</a> ·
+<a href="https://orrery.giovanni.dev.br">orrery</a> ·
 <a href="https://resume.giovanni.dev.br">resume</a> ·
 <a href="https://www.linkedin.com/in/giovanni-coutinho">linkedin</a>
 </samp>

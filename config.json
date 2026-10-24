@@ -2,7 +2,7 @@
   "login": "giovannirco",
   "name": "Giovanni Coutinho",
   "role": "Staff Platform Engineer · Kubernetes, GitOps, observability",
-  "lab_api": "https://giovanni.dev.br",
+  "lab_api": "https://orrery.giovanni.dev.br",
   "clusters": 6,
   "featured": {
     "job-scout": "Job search pipeline with a 40-tool MCP server",
