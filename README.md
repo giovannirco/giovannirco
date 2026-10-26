@@ -56,11 +56,11 @@ A small window into the homelab on an ESP32 desk display. A Rust hub collects da
 <p>
 <picture>
   <source media="(max-width: 600px)" srcset="cards/activity-mobile.svg">
-  <img alt="18,187 GitHub contributions over the past year, grouped by week" src="cards/activity.svg" width="840">
+  <img alt="18,192 GitHub contributions over the past year, grouped by week" src="cards/activity.svg" width="840">
 </picture>
 </p>
 
-<sub>Weekly totals from GitHub's contribution calendar. Collected 2026-10-26 12:48 UTC.</sub>
+<sub>Weekly totals from GitHub's contribution calendar. Collected 2026-10-26 12:55 UTC.</sub>
 
 ## Products I'm building
 
@@ -88,7 +88,7 @@ At home I run six Talos clusters on Proxmox with the same rules: GitOps for ever
 <p>
 <picture>
   <source media="(max-width: 600px)" srcset="cards/operations-mobile.svg">
-  <img alt="Compute: 3/3 hosts up. Proxmox · virtual machines and containers; Network policy: 287/293 endpoints. Ingress or egress policy enforced; Backups: 29/29 recorded results OK. Latest result 2026-10-26 07:46 UTC; Network: 13/13 devices online. WAN latency 11 ms; GPU: 2 reporting · 48 GiB VRAM. Current readings and short history below" src="cards/operations.svg" width="840">
+  <img alt="Compute: 3/3 hosts up. Proxmox · virtual machines and containers; Network policy: 287/293 endpoints. Ingress or egress policy enforced; Backups: 29/29 recorded results OK. Latest result 2026-10-26 07:46 UTC; Network: 13/13 devices online. WAN latency 13 ms; GPU: 2 reporting · 48 GiB VRAM. Current readings and short history below" src="cards/operations.svg" width="840">
 </picture>
 </p>
 
@@ -98,41 +98,41 @@ At home I run six Talos clusters on Proxmox with the same rules: GitOps for ever
 | Node | Ready | CPU | Memory | Pods |
 | :--- | :--- | ---: | ---: | ---: |
 | node-01 | yes | 26% | 76% | 63 |
-| node-02 | yes | 41% | 65% | 48 |
-| node-03 | yes | 16% | 48% | 34 |
-| node-04 | yes | 14% | 39% | 36 |
-| node-05 | yes | 18% | 45% | 42 |
-| node-06 | yes | 24% | 67% | 16 |
-| node-07 | yes | 9% | 34% | 34 |
-| node-08 | yes | 14% | 79% | 62 |
-| node-09 | yes | 20% | 87% | 29 |
+| node-02 | yes | 42% | 66% | 48 |
+| node-03 | yes | 17% | 48% | 34 |
+| node-04 | yes | 14% | 38% | 36 |
+| node-05 | yes | 18% | 44% | 42 |
+| node-06 | yes | 23% | 68% | 16 |
+| node-07 | yes | 5% | 34% | 33 |
+| node-08 | yes | 16% | 80% | 62 |
+| node-09 | yes | 22% | 87% | 29 |
 | node-10 | yes | 20% | 68% | 52 |
-| node-11 | yes | 30% | 62% | 65 |
+| node-11 | yes | 30% | 63% | 65 |
 
-Sampled 2026-10-26 12:48 UTC
+Sampled 2026-10-26 12:55 UTC
 
 | Host | CPU | Memory | VMs up | Containers up |
 | :--- | ---: | ---: | ---: | ---: |
-| Compute-A | 11% | 92% | 2/3 | 2/2 |
-| Compute-B | 17% | 73% | 4/9 | 9/10 |
-| Compute-C | 27% | 81% | 15/15 | 8/13 |
+| Compute-A | 13% | 92% | 2/3 | 2/2 |
+| Compute-B | 18% | 73% | 4/9 | 9/10 |
+| Compute-C | 28% | 81% | 15/15 | 8/13 |
 
-Sampled 2026-10-26 12:48 UTC
+Sampled 2026-10-26 12:55 UTC
 
-Cilium: 2,229 flows/s; 0.8 drops/s. Endpoint enforcement counts ingress, egress or both; it does not measure default-deny coverage.
+Cilium: 1,981 flows/s; 0.8 drops/s. Endpoint enforcement counts ingress, egress or both; it does not measure default-deny coverage.
 
-Sampled 2026-10-26 12:48 UTC
+Sampled 2026-10-26 12:55 UTC
 
-WAN: 6.85 MB/s down, 4.77 MB/s up. Wi-Fi access points: 6/6; switches: 6/6; gateways: 1/1 online.
+WAN: 0.49 MB/s down, 4.65 MB/s up. Wi-Fi access points: 6/6; switches: 6/6; gateways: 1/1 online.
 
-Sampled 2026-10-26 12:47 UTC
+Sampled 2026-10-26 12:54 UTC
 
 Disk checks: 6/6 passing. Backup results are the latest recorded job results, not proof that every guest is covered or restores work.
 
 <p>
 <picture>
   <source media="(max-width: 600px)" srcset="cards/hardware-mobile.svg">
-  <img alt="GPU / SHORT HISTORY GPU-1 0% use · 37 °C · 10 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 12:47 UTC GPU-2 0% use · 39 °C · 25 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 12:47 UTC . Sampled 2026-10-26 12:47 UTC" src="cards/hardware.svg" width="840">
+  <img alt="GPU / SHORT HISTORY GPU-1 0% use · 37 °C · 10 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 12:54 UTC GPU-2 0% use · 39 °C · 25 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 12:54 UTC . Sampled 2026-10-26 12:54 UTC" src="cards/hardware.svg" width="840">
 </picture>
 </p>
 
@@ -143,13 +143,13 @@ Disk checks: 6/6 passing. Backup results are the latest recorded job results, no
 
 Readings come from the [orrery's public feeds](https://orrery.giovanni.dev.br/api/insight/lab). The cards refresh every six hours. Each date belongs to the source sample where available; storage has a collection time and a separate backup-event time. A failed refresh keeps the previous dated reading.
 
-- lab: Sampled 2026-10-26 12:48 UTC
-- nodes: Sampled 2026-10-26 12:48 UTC
-- proxmox: Sampled 2026-10-26 12:48 UTC
-- storage: Collected 2026-10-26 12:48 UTC
-- network: Sampled 2026-10-26 12:48 UTC
-- unifi: Sampled 2026-10-26 12:47 UTC
-- gpu: Sampled 2026-10-26 12:47 UTC
-- github: Collected 2026-10-26 12:48 UTC
+- lab: Sampled 2026-10-26 12:55 UTC
+- nodes: Sampled 2026-10-26 12:55 UTC
+- proxmox: Sampled 2026-10-26 12:55 UTC
+- storage: Collected 2026-10-26 12:55 UTC
+- network: Sampled 2026-10-26 12:55 UTC
+- unifi: Sampled 2026-10-26 12:54 UTC
+- gpu: Sampled 2026-10-26 12:54 UTC
+- github: Collected 2026-10-26 12:55 UTC
 
 </details>
