@@ -77,16 +77,16 @@ A small window into the homelab on an ESP32 desk display. A Rust hub collects da
 <p>
 <picture>
   <source media="(max-width: 600px)" srcset="cards/activity-mobile.svg">
-  <img alt="18,205 GitHub contributions over the past year, grouped by week" src="cards/activity.svg" width="840">
+  <img alt="18,206 GitHub contributions over the past year, grouped by week" src="cards/activity.svg" width="840">
 </picture>
 </p>
 
-<sub>Weekly totals from GitHub's contribution calendar. Collected 2026-10-26 13:41 UTC.</sub>
+<sub>Weekly totals from GitHub's contribution calendar. Collected 2026-10-26 13:42 UTC.</sub>
 
 <p>
 <picture>
   <source media="(max-width: 600px)" srcset="cards/streak-mobile.svg">
-  <img alt="GitHub Streak Stats. 20,977 total contributions (2017-12-15 - Present); current daily streak: 98 days (2026-07-21 - 2026-10-26); longest daily streak: 98 days (2026-07-21 - 2026-10-26). Collected 2026-10-26 13:39 UTC." src="cards/streak.svg" width="840">
+  <img alt="GitHub Streak Stats. 20,978 total contributions (2017-12-15 - Present); current daily streak: 98 days (2026-07-21 - 2026-10-26); longest daily streak: 98 days (2026-07-21 - 2026-10-26). Collected 2026-10-26 13:42 UTC." src="cards/streak.svg" width="840">
 </picture>
 </p>
 
@@ -111,14 +111,14 @@ At home I run six Talos clusters on Proxmox with the same rules: GitOps for ever
 <p>
 <picture>
   <source media="(max-width: 600px)" srcset="cards/fleet-mobile.svg">
-  <img alt="Homelab capacity and readiness. 6/6 clusters ready; 11/11 nodes ready; 481 pods; 78 Kubernetes vCPU; 150 namespaces. Cluster 01: ready. Cluster 02: ready. Cluster 03: ready. Cluster 04: ready. Cluster 05: ready. Cluster 06: ready" src="cards/fleet.svg" width="840">
+  <img alt="Homelab capacity and readiness. 6/6 clusters ready; 11/11 nodes ready; 480 pods; 78 Kubernetes vCPU; 150 namespaces. Cluster 01: ready. Cluster 02: ready. Cluster 03: ready. Cluster 04: ready. Cluster 05: ready. Cluster 06: ready" src="cards/fleet.svg" width="840">
 </picture>
 </p>
 
 <p>
 <picture>
   <source media="(max-width: 600px)" srcset="cards/operations-mobile.svg">
-  <img alt="Compute: 3/3 hosts up. Proxmox · virtual machines and containers; Network policy: 287/293 endpoints. Ingress or egress policy enforced; Backups: 29/29 recorded results OK. Latest result 2026-10-26 07:46 UTC; Network: 13/13 devices online. WAN latency 8 ms; GPU: 2 reporting · 48 GiB VRAM. Current readings and short history below" src="cards/operations.svg" width="840">
+  <img alt="Compute: 3/3 hosts up. Proxmox · virtual machines and containers; Network policy: 287/293 endpoints. Ingress or egress policy enforced; Backups: 29/29 recorded results OK. Latest result 2026-10-26 07:46 UTC; Network: 13/13 devices online. WAN latency 10 ms; GPU: 2 reporting · 48 GiB VRAM. Current readings and short history below" src="cards/operations.svg" width="840">
 </picture>
 </p>
 
@@ -127,42 +127,42 @@ At home I run six Talos clusters on Proxmox with the same rules: GitOps for ever
 
 | Node | Ready | CPU | Memory | Pods |
 | :--- | :--- | ---: | ---: | ---: |
-| node-01 | yes | 26% | 75% | 63 |
-| node-02 | yes | 42% | 66% | 48 |
-| node-03 | yes | 16% | 48% | 34 |
-| node-04 | yes | 14% | 39% | 36 |
-| node-05 | yes | 18% | 44% | 42 |
-| node-06 | yes | 23% | 65% | 16 |
-| node-07 | yes | 4% | 33% | 34 |
+| node-01 | yes | 26% | 73% | 63 |
+| node-02 | yes | 42% | 67% | 48 |
+| node-03 | yes | 17% | 47% | 34 |
+| node-04 | yes | 14% | 40% | 36 |
+| node-05 | yes | 18% | 45% | 42 |
+| node-06 | yes | 23% | 66% | 16 |
+| node-07 | yes | 5% | 33% | 33 |
 | node-08 | yes | 16% | 82% | 62 |
 | node-09 | yes | 21% | 87% | 29 |
-| node-10 | yes | 21% | 69% | 52 |
+| node-10 | yes | 22% | 71% | 52 |
 | node-11 | yes | 30% | 63% | 65 |
 
-Sampled 2026-10-26 13:41 UTC
+Sampled 2026-10-26 13:42 UTC
 
 | Host | CPU | Memory | VMs up | Containers up |
 | :--- | ---: | ---: | ---: | ---: |
-| Compute-A | 13% | 92% | 2/3 | 2/2 |
-| Compute-B | 15% | 73% | 4/9 | 9/10 |
-| Compute-C | 27% | 81% | 15/15 | 8/13 |
+| Compute-A | 10% | 92% | 2/3 | 2/2 |
+| Compute-B | 17% | 73% | 4/9 | 9/10 |
+| Compute-C | 31% | 82% | 15/15 | 8/13 |
 
-Sampled 2026-10-26 13:41 UTC
+Sampled 2026-10-26 13:42 UTC
 
-Cilium: 2,203 flows/s; 0.8 drops/s. Endpoint enforcement counts ingress, egress or both; it does not measure default-deny coverage.
+Cilium: 2,252 flows/s; 0.8 drops/s. Endpoint enforcement counts ingress, egress or both; it does not measure default-deny coverage.
 
-Sampled 2026-10-26 13:41 UTC
+Sampled 2026-10-26 13:42 UTC
 
-WAN: 2.89 MB/s down, 21.31 MB/s up. Wi-Fi access points: 6/6; switches: 6/6; gateways: 1/1 online.
+WAN: 0.69 MB/s down, 12.74 MB/s up. Wi-Fi access points: 6/6; switches: 6/6; gateways: 1/1 online.
 
-Sampled 2026-10-26 13:41 UTC
+Sampled 2026-10-26 13:42 UTC
 
 Disk checks: 6/6 passing. Backup results are the latest recorded job results, not proof that every guest is covered or restores work.
 
 <p>
 <picture>
   <source media="(max-width: 600px)" srcset="cards/hardware-mobile.svg">
-  <img alt="GPU / SHORT HISTORY GPU-1 0% use · 37 °C · 9 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 13:40 UTC GPU-2 0% use · 39 °C · 25 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 13:40 UTC . Sampled 2026-10-26 13:40 UTC" src="cards/hardware.svg" width="840">
+  <img alt="GPU / SHORT HISTORY GPU-1 0% use · 37 °C · 9 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 13:41 UTC GPU-2 0% use · 39 °C · 25 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 13:41 UTC . Sampled 2026-10-26 13:41 UTC" src="cards/hardware.svg" width="840">
 </picture>
 </p>
 
@@ -173,13 +173,13 @@ Disk checks: 6/6 passing. Backup results are the latest recorded job results, no
 
 Readings come from the [orrery's public feeds](https://orrery.giovanni.dev.br/api/insight/lab). The cards refresh every six hours. Each date belongs to the source sample where available; storage has a collection time and a separate backup-event time. A failed refresh keeps the previous dated reading.
 
-- lab: Sampled 2026-10-26 13:41 UTC
-- nodes: Sampled 2026-10-26 13:41 UTC
-- proxmox: Sampled 2026-10-26 13:41 UTC
-- storage: Collected 2026-10-26 13:41 UTC
-- network: Sampled 2026-10-26 13:41 UTC
-- unifi: Sampled 2026-10-26 13:41 UTC
-- gpu: Sampled 2026-10-26 13:40 UTC
-- github: Collected 2026-10-26 13:41 UTC
+- lab: Sampled 2026-10-26 13:42 UTC
+- nodes: Sampled 2026-10-26 13:42 UTC
+- proxmox: Sampled 2026-10-26 13:42 UTC
+- storage: Collected 2026-10-26 13:42 UTC
+- network: Sampled 2026-10-26 13:42 UTC
+- unifi: Sampled 2026-10-26 13:42 UTC
+- gpu: Sampled 2026-10-26 13:41 UTC
+- github: Collected 2026-10-26 13:42 UTC
 
 </details>
