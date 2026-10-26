@@ -108,8 +108,13 @@ passed for all four source files. All eight data sources refreshed. The pinned
 upstream PHP generator completed in 2.9 seconds; an injected historical-fetch
 error correctly blocked adaptation. Independent review passed after correcting
 outline fills that made the terminal and printer surfaces transparent. Browser
-checks confirmed animated image frames change, reduced-motion frames settle to
-an identical static composition, and the completed paths remain visible.
+checks confirmed animated image frames change and standalone SVGs honor reduced
+motion. A later full-cycle check found that embedded SVGs kept animating despite
+the internal media query. Twelve explicit static variants now cover every animated
+card, selected by reduced-motion picture sources before the width-only source.
+Five screenshot samples across fourteen seconds were identical, and desktop and
+mobile selected the correct static files. The final suite has 51 passing tests.
+Content digests in image URLs also prevent stale cached cards after a refresh.
 Desktop images display at 840px; mobile images at 308px from 336px compositions,
 without horizontal overflow. Both themes follow GitHub despite the opposite OS
 preference.

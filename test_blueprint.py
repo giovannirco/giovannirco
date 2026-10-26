@@ -64,6 +64,20 @@ def test_image_versions_change_with_content_and_are_stable_between_builds(output
     assert re.search(r"cards/activity-mobile.svg\?v=[a-f0-9]+", outputs["README.md"])
 
 
+def test_readme_selects_completed_static_assets_for_reduced_motion(outputs):
+    readme = outputs["README.md"]
+    for name in ("header", "fleet", "activity", "scout", "platen", "cpa"):
+        for suffix in ("", "-mobile"):
+            path = f"cards/{name}{suffix}-still.svg"
+            assert path in outputs
+            assert path in readme
+            style = ET.fromstring(outputs[path]).find("s:style", NS).text
+            assert style.endswith(".signal,.scan,.halo{display:none}")
+        assert readme.index(f"cards/{name}-mobile-still.svg") < readme.index(f"cards/{name}-mobile.svg")
+    assert 'media="(prefers-reduced-motion: reduce) and (max-width: 600px)"' in readme
+    assert 'media="(prefers-reduced-motion: reduce)"' in readme
+
+
 def test_cluster_diagram_labels_degraded_unknown_and_ready_without_private_names():
     data = normalize(
         "nodes",

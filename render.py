@@ -92,7 +92,7 @@ class Svg:
     def rect(self, x: float, y: float, width: float, height: float, fill: str = "accent") -> None:
         self.parts.append(f'<rect x="{x:.2f}" y="{y:.2f}" width="{width:.2f}" height="{height:.2f}" class="c-{fill}"/>')
 
-    def render(self, theme: str) -> str:
+    def render(self, theme: str, *, still: bool = False) -> str:
         style = font_faces("".join(sorted(set(self.text))), tuple(sorted(self.used)))
         style += ".sans{font-family:Psans,system-ui,sans-serif}.mono{font-family:Pmono,monospace}"
         for mode in ("light", "dark") if theme == "auto" else (theme,):
@@ -105,6 +105,8 @@ class Svg:
                 "@media(prefers-color-scheme:dark){" + palette + "}" if theme == "auto" and mode == "dark" else palette
             )
         style += self.styles
+        if still:
+            style += blueprint.STILL
         return (
             f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.width}" height="{self.height}" '
             f'viewBox="0 0 {self.width} {self.height}" role="img" aria-label="{escape(self.title)}">'
@@ -422,8 +424,16 @@ def hardware(samples: dict[str, Sample], now: dt.datetime, mobile: bool) -> Svg:
 
 def picture(name: str, alt: str, content: str) -> str:
     version = hashlib.sha256(content.encode()).hexdigest()[:12]
+    still = ""
+    if name in blueprint.ANIMATED_CARDS:
+        still = (
+            '  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" '
+            f'srcset="cards/{name}-mobile-still.svg?v={version}">\n'
+            '  <source media="(prefers-reduced-motion: reduce)" '
+            f'srcset="cards/{name}-still.svg?v={version}">\n'
+        )
     return (
-        f"<p>\n<picture>\n"
+        f"<p>\n<picture>\n{still}"
         f'  <source media="(max-width: 600px)" srcset="cards/{name}-mobile.svg?v={version}">\n'
         f'  <img alt="{escape(alt)}" src="cards/{name}.svg?v={version}" width="840">\n</picture>\n</p>'
     )
@@ -494,9 +504,20 @@ def build_outputs(samples: dict[str, Sample], config: Payload, now: dt.datetime)
         for name, svg in cards.items():
             suffix = "-mobile" if mobile else ""
             outputs[f"cards/{name}{suffix}.svg"] = svg.render("auto")
+            if name in blueprint.ANIMATED_CARDS:
+                outputs[f"cards/{name}{suffix}-still.svg"] = svg.render("auto", still=True)
             titles[name] = svg.title
     pictures = {
-        name: picture(name, title, outputs[f"cards/{name}.svg"] + outputs[f"cards/{name}-mobile.svg"])
+        name: picture(
+            name,
+            title,
+            "".join(
+                outputs[f"cards/{name}{suffix}.svg"]
+                for suffix in (
+                    ("", "-mobile", "-still", "-mobile-still") if name in blueprint.ANIMATED_CARDS else ("", "-mobile")
+                )
+            ),
+        )
         for name, title in titles.items()
     }
     readme = (ROOT / "README.template.md").read_text()

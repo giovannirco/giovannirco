@@ -36,19 +36,23 @@ successful restores. Preserve these definitions when changing labels.
 Cards are SVGs with embedded IBM Plex subsets. `blueprint.py` draws the header
 and project workflows, sampled cluster states and the weekly contribution trace.
 Text and readings remain visible while paths draw and signals move. Motion is
-illustrative; the lab is sampled every six hours. Reduced motion disables the
-animations and shows the completed drawing. Essential readings appear in image
+illustrative; the lab is sampled every six hours. Reduced motion selects a
+separate static SVG with the completed drawing. Essential readings appear in image
 alt text, with native tables for node and host details. A reader can still follow
 project links with images disabled.
 
 Each SVG contains both palettes. Its internal color-scheme media query inherits
 the GitHub page's theme. The README's picture sources select only by width, at
-600px. Do not combine width and color-scheme queries in those sources: GitHub's
+600px. Reduced-motion sources come first: mobile, then desktop. Do not combine
+width and color-scheme queries in those sources: GitHub's
 `themed-picture` component rewrites theme queries and discards width conditions.
 Desktop cards are 840px; mobile compositions are 336px. Eight Python-rendered
 cards produce sixteen assets, including three project diagrams and the GPU
-history inside the expandable details. Two more assets contain streak statistics.
-Picture URLs include a digest of both compositions so GitHub's image cache does
+history inside the expandable details. Two more assets contain streak statistics;
+twelve static variants cover the six animated cards, for thirty SVGs in total.
+The reduced-motion query inside an SVG works when opened directly but was ignored
+by Chromium when embedded as an image. Keep the explicit static picture sources.
+Picture URLs include a digest of every variant so GitHub's image cache does
 not keep an older card after its content changes.
 
 The pinned upstream Streak Stats Action generates its SVG locally with PHP 8.3

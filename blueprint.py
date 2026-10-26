@@ -5,8 +5,14 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from render import Svg
 
+STILL = (
+    ".draw,.signal,.scan,.paper,.trace,.halo{animation:none;transform:none;stroke-dashoffset:0}"
+    ".signal,.scan,.halo{display:none}"
+)
+ANIMATED_CARDS = {"header", "fleet", "activity", "scout", "platen", "cpa"}
 
-MOTION = """
+MOTION = (
+    """
 .wire,.outline{stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .wire,.outline:not(.c-bg){fill:none}
 .draw{stroke-dasharray:1;stroke-dashoffset:0;animation:draw 3s cubic-bezier(.16,1,.3,1) both}
@@ -29,11 +35,11 @@ animation:halo 12s ease-out 3s infinite;opacity:0}
 38%{transform:translateY(5px)}}
 @keyframes halo{0%,38%,100%{opacity:0;transform:scale(1)}
 8%{opacity:.7;transform:scale(1)}32%{opacity:0;transform:scale(2)}}
-@media(prefers-reduced-motion:reduce){
-.draw,.signal,.scan,.paper,.trace,.halo{animation:none;transform:none;stroke-dashoffset:0}
-.signal,.scan,.halo{display:none}
-}
 """
+    + "@media(prefers-reduced-motion:reduce){"
+    + STILL
+    + "}"
+)
 
 
 def path(svg: Svg, route: str, classes: str = "wire s-line", extra: str = "") -> None:
