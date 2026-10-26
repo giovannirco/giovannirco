@@ -1,0 +1,230 @@
+# The profile's frames: the same renderer that drives the tiny screen on the desk, fed by the homelab's
+# public, sanitised telemetry (the orrery's /api/insight/*) and the GitHub API. Rendered by the cards
+# workflow at 3x and committed as PNGs. Nothing private: every name here is already public.
+hub:
+  title: giovannirco
+  cycle_s: 0
+  stale_s: 3600
+
+plugins:
+  - kind: clock
+    tz: UTC
+
+  - kind: http_json
+    name: lab
+    url: ${LAB_API}/api/insight/lab
+    interval_s: 60
+    fields:
+      - {key: clusters, pointer: /clusters}
+      - {key: nodes, pointer: /nodes}
+      - {key: pods, pointer: /pods}
+      - {key: cores, pointer: /cores}
+      - {key: namespaces, pointer: /namespaces}
+
+  - kind: http_json
+    name: nodes
+    url: ${LAB_API}/api/insight/nodes
+    interval_s: 60
+    items:
+      - pointer: /nodes
+        key: /name
+        prefix: node
+        fields:
+          - {key: ready, pointer: /ready}
+          - {key: cpu, pointer: /cpu}
+          - {key: mem, pointer: /memoryUsed, over: /memoryTotal}
+          - {key: pods, pointer: /pods}
+          - {key: cores, pointer: /cores}
+        count:
+          - {key: ready, pointer: /ready, equals: true}
+
+  - kind: http_json
+    name: pve
+    url: ${LAB_API}/api/insight/proxmox
+    interval_s: 60
+    items:
+      - pointer: /hosts
+        key: /name
+        prefix: host
+        fields:
+          - {key: up, pointer: /up}
+          - {key: cpu, pointer: /cpu}
+          - {key: mem, pointer: /memoryUsed, over: /memoryTotal}
+          - {key: cores, pointer: /cores}
+          - {key: uptime, pointer: /uptimeSeconds}
+          - {key: vms, pointer: /vmsRunning}
+          - {key: vms_total, pointer: /vmsTotal}
+          - {key: cts, pointer: /containersRunning}
+          - {key: cts_total, pointer: /containersTotal}
+        count:
+          - {key: up, pointer: /up, equals: true}
+
+  - kind: http_json
+    name: store
+    url: ${LAB_API}/api/insight/storage
+    interval_s: 300
+    fields:
+      - {key: disks, pointer: /disks}
+      - {key: disks_ok, pointer: /disksPassing}
+      - {key: guests, pointer: /guests}
+      - {key: backups, pointer: /backupRuns}
+      - {key: backups_ok, pointer: /backupPassed}
+
+  - kind: http_json
+    name: net
+    url: ${LAB_API}/api/insight/network
+    interval_s: 60
+    fields:
+      - {key: flows, pointer: /flowsPerSecond}
+      - {key: drops, pointer: /dropsPerSecond}
+      - {key: enforced, pointer: /enforcedEndpoints}
+      - {key: endpoints, pointer: /endpoints}
+      - {key: enforced_ratio, pointer: /enforcedEndpoints, over: /endpoints}
+
+  - kind: http_json
+    name: unifi
+    url: ${LAB_API}/api/insight/unifi
+    interval_s: 60
+    fields:
+      - {key: devices, pointer: /devices}
+      - {key: online, pointer: /online}
+      - {key: aps, pointer: /apsOnline}
+      - {key: switches, pointer: /switchesOnline}
+      - {key: internet, pointer: /internetUp}
+      - {key: latency, pointer: /latencyMs}
+      - {key: down, pointer: /downloadBytes}
+      - {key: up, pointer: /uploadBytes}
+
+  - kind: http_json
+    name: gpu
+    url: ${LAB_API}/api/insight/gpu
+    interval_s: 60
+    items:
+      - pointer: /gpus
+        key: /name
+        prefix: card
+        fields:
+          - {key: usage, pointer: /usage}
+          - {key: vram, pointer: /memoryUsed, over: /memoryTotal}
+          - {key: temp, pointer: /temperature}
+          - {key: power, pointer: /power}
+          - {key: limit, pointer: /powerLimit}
+          - {key: history, pointer: /history, kind: series, element: /1}
+
+  - kind: github
+    name: gh
+    user: ${GITHUB_USER}
+    token: ${GITHUB_TOKEN}
+    interval_s: 600
+    repos: [job-scout, platen, cpa-prometheus-plugin, agentic-homelab, peephole, giovanni-dev-br-public]
+
+pages:
+  - name: homelab
+    title: Homelab · live
+    cards:
+      - {x: 6, y: 24, w: 100, h: 66, accent: web, widgets: [
+          {kind: kpi, x: 8, y: 4, bind: lab/clusters, label: clusters, fmt: int, color: web},
+          {kind: kpi, x: 54, y: 4, bind: lab/nodes, label: nodes, fmt: int, size: mid},
+          {kind: kpi, x: 54, y: 36, bind: lab/cores, label: cores, fmt: int, size: mid}]}
+      - {x: 110, y: 24, w: 100, h: 66, accent: web, widgets: [
+          {kind: kpi, x: 8, y: 4, bind: lab/pods, label: pods, fmt: int, color: web},
+          {kind: kpi, x: 56, y: 4, bind: lab/namespaces, label: namesp., fmt: int, size: mid},
+          {kind: text, x: 8, y: 46, text: "default deny, all", font: small, color: text2}]}
+      - {x: 214, y: 24, w: 100, h: 66, accent: ok, widgets: [
+          {kind: gauge, x: 24, y: 50, r: 13, bind: net/enforced_ratio, label: enforced, color: ok, thresholds: {warn: 0.95, bad: 0.8, invert: true}},
+          {kind: kpi, x: 54, y: 4, bind: net/flows, label: flows/s, fmt: auto, size: mid},
+          {kind: kpi, x: 54, y: 34, bind: net/drops, label: drops/s, fmt: int, size: mid, thresholds: {warn: 10, bad: 100}}]}
+      - {x: 6, y: 96, w: 308, h: 68, accent: web, widgets: [
+          {kind: text, x: 124, y: 2, text: cpu, font: small, color: text2},
+          {kind: text, x: 196, y: 2, text: memory, font: small, color: text2},
+          {kind: text, x: 262, y: 2, text: guests, font: small, color: text2},
+          {kind: rows, x: 8, y: 14, w: 292, row_h: 17,
+           items: [{key: Compute-A, name: compute a}, {key: Compute-B, name: compute b}, {key: Compute-C, name: compute c}],
+           cols: [{kind: name, w: 82}, {kind: led, bind: "pve/host/{}/up"}, {kind: bar, bind: "pve/host/{}/cpu", w: 58, color: web, thresholds: {warn: 0.8, bad: 0.9}}, {kind: bar, bind: "pve/host/{}/mem", w: 58, color: ai, thresholds: {warn: 0.85, bad: 0.95}}, {kind: num, bind: "pve/host/{}/vms", w: 44, fmt: int}]}]}
+
+  - name: nodes
+    title: Kubernetes · nodes
+    cards:
+      - {x: 6, y: 24, w: 152, h: 140, accent: web, widgets: [
+          {kind: text, x: 78, y: 2, text: cpu, font: small, color: text2},
+          {kind: text, x: 114, y: 2, text: mem, font: small, color: text2},
+          {kind: rows, x: 6, y: 14, w: 142, row_h: 20,
+           items: [{key: node-01}, {key: node-02}, {key: node-03}, {key: node-04}, {key: node-05}, {key: node-06}],
+           cols: [{kind: name, w: 60}, {kind: led, bind: "nodes/node/{}/ready"}, {kind: bar, bind: "nodes/node/{}/cpu", w: 32, color: web, thresholds: {warn: 0.8, bad: 0.9}}, {kind: bar, bind: "nodes/node/{}/mem", w: 32, color: ai, thresholds: {warn: 0.85, bad: 0.95}}]}]}
+      - {x: 162, y: 24, w: 152, h: 140, accent: web, widgets: [
+          {kind: text, x: 78, y: 2, text: cpu, font: small, color: text2},
+          {kind: text, x: 114, y: 2, text: mem, font: small, color: text2},
+          {kind: rows, x: 6, y: 14, w: 142, row_h: 20,
+           items: [{key: node-07}, {key: node-08}, {key: node-09}, {key: node-10}, {key: node-11}],
+           cols: [{kind: name, w: 60}, {kind: led, bind: "nodes/node/{}/ready"}, {kind: bar, bind: "nodes/node/{}/cpu", w: 32, color: web, thresholds: {warn: 0.8, bad: 0.9}}, {kind: bar, bind: "nodes/node/{}/mem", w: 32, color: ai, thresholds: {warn: 0.85, bad: 0.95}}]},
+          {kind: text, x: 6, y: 118, text: "{{nodes/node_ready|int}} / {{nodes/node_count|int}} ready · {{lab/pods|int}} pods", font: small, color: text2}]}
+
+  - name: network
+    title: Network · live
+    cards:
+      - {x: 6, y: 24, w: 150, h: 64, accent: net, widgets: [
+          {kind: kpi, x: 8, y: 4, bind: unifi/down, label: WAN down, fmt: bytes, unit: "/s", color: net},
+          {kind: text, x: 8, y: 46, text: "{{unifi/latency|int}} ms to the internet", font: small, color: text2}]}
+      - {x: 162, y: 24, w: 152, h: 64, accent: net, widgets: [
+          {kind: kpi, x: 8, y: 4, bind: unifi/up, label: WAN up, fmt: bytes, unit: "/s", color: net},
+          {kind: text, x: 8, y: 46, text: "{{net/flows|auto}} flows/s · {{net/drops|int}} drops/s", font: small, color: text2}]}
+      - {x: 6, y: 94, w: 150, h: 70, accent: net, widgets: [
+          {kind: text, x: 8, y: 4, text: UniFi devices online, font: small, color: text2},
+          {kind: text, x: 8, y: 18, text: "{{unifi/online|int}} / {{unifi/devices|int}}", font: num},
+          {kind: text, x: 8, y: 50, text: "{{unifi/aps|int}} access points · {{unifi/switches|int}} switches", font: small, color: text2}]}
+      - {x: 162, y: 94, w: 152, h: 70, accent: ok, widgets: [
+          {kind: text, x: 8, y: 4, text: network policy, font: small, color: text2},
+          {kind: text, x: 8, y: 18, text: "{{net/enforced|int}} / {{net/endpoints|int}}", font: num},
+          {kind: text, x: 8, y: 50, text: "endpoints under default deny", font: small, color: text2}]}
+
+  - name: gpu
+    title: GPU node · two cards
+    cards:
+      - {x: 6, y: 24, w: 152, h: 140, accent: ai, title: card 0, widgets: [
+          {kind: kpi, x: 8, y: 16, bind: gpu/card/GPU-1/temp, label: temperature, fmt: temp, thresholds: {warn: 70, bad: 78}},
+          {kind: text, x: 84, y: 16, text: power, font: small, color: text2},
+          {kind: text, x: 84, y: 30, text: "{{gpu/card/GPU-1/power|int}}/{{gpu/card/GPU-1/limit|int}} W", font: mid},
+          {kind: gauge, x: 30, y: 100, r: 16, bind: gpu/card/GPU-1/usage, label: util, color: ai},
+          {kind: gauge, x: 80, y: 100, r: 16, bind: gpu/card/GPU-1/vram, label: vram, color: ai},
+          {kind: spark, x: 104, y: 72, w: 40, h: 30, bind: gpu/card/GPU-1/history, color: ai}]}
+      - {x: 162, y: 24, w: 152, h: 140, accent: ai, title: card 1, widgets: [
+          {kind: kpi, x: 8, y: 16, bind: gpu/card/GPU-2/temp, label: temperature, fmt: temp, thresholds: {warn: 70, bad: 78}},
+          {kind: text, x: 84, y: 16, text: power, font: small, color: text2},
+          {kind: text, x: 84, y: 30, text: "{{gpu/card/GPU-2/power|int}}/{{gpu/card/GPU-2/limit|int}} W", font: mid},
+          {kind: gauge, x: 30, y: 100, r: 16, bind: gpu/card/GPU-2/usage, label: util, color: ai},
+          {kind: gauge, x: 80, y: 100, r: 16, bind: gpu/card/GPU-2/vram, label: vram, color: ai},
+          {kind: spark, x: 104, y: 72, w: 40, h: 30, bind: gpu/card/GPU-2/history, color: ai}]}
+
+  - name: storage
+    title: Storage and backups
+    cards:
+      - {x: 6, y: 24, w: 150, h: 66, accent: ok, widgets: [
+          {kind: text, x: 8, y: 4, text: backups passed, font: small, color: text2},
+          {kind: text, x: 8, y: 20, text: "{{store/backups_ok|int}} / {{store/backups|int}}", font: num}]}
+      - {x: 162, y: 24, w: 152, h: 66, accent: ok, widgets: [
+          {kind: text, x: 8, y: 4, text: disks healthy, font: small, color: text2},
+          {kind: text, x: 8, y: 20, text: "{{store/disks_ok|int}} / {{store/disks|int}}", font: num},
+          {kind: kpi, x: 96, y: 4, bind: store/guests, label: guests, fmt: int, size: mid}]}
+      - {x: 6, y: 96, w: 308, h: 68, accent: web, widgets: [
+          {kind: text, x: 118, y: 2, text: vms, font: small, color: text2},
+          {kind: text, x: 176, y: 2, text: containers, font: small, color: text2},
+          {kind: text, x: 250, y: 2, text: uptime, font: small, color: text2},
+          {kind: rows, x: 8, y: 14, w: 292, row_h: 17,
+           items: [{key: Compute-A, name: compute a}, {key: Compute-B, name: compute b}, {key: Compute-C, name: compute c}],
+           cols: [{kind: name, w: 82}, {kind: led, bind: "pve/host/{}/up"}, {kind: num, bind: "pve/host/{}/vms", w: 50, fmt: int}, {kind: num, bind: "pve/host/{}/cts", w: 66, fmt: int}, {kind: num, bind: "pve/host/{}/uptime", w: 70, fmt: duration}]}]}
+
+  - name: work
+    title: Public work · GitHub
+    cards:
+      - {x: 6, y: 24, w: 100, h: 66, accent: web, widgets: [
+          {kind: kpi, x: 8, y: 4, bind: gh/stars, label: stars, fmt: int, color: web},
+          {kind: kpi, x: 54, y: 4, bind: gh/followers, label: followers, fmt: int, size: mid},
+          {kind: kpi, x: 54, y: 36, bind: gh/public_repos, label: repos, fmt: int, size: mid}]}
+      - {x: 110, y: 24, w: 204, h: 66, accent: web, widgets: [
+          {kind: text, x: 8, y: 4, text: last push, font: small, color: text2},
+          {kind: text, x: 8, y: 18, text: "{{gh/last_push_repo}}", font: mid},
+          {kind: text, x: 8, y: 38, text: "{{gh/last_push_age|duration}} ago · {{gh/pushes_24h|int}} pushes in 24 h", font: small, color: text2}]}
+      - {x: 6, y: 96, w: 308, h: 68, accent: web, widgets: [
+          {kind: rows, x: 8, y: 4, w: 292, row_h: 20,
+           items: [{key: job-scout}, {key: platen}, {key: cpa-prometheus-plugin}],
+           cols: [{kind: name, w: 160}, {kind: num, bind: "gh/repo/{}/stars", w: 64, fmt: int, unit: stars}, {kind: num, bind: "gh/repo/{}/issues", w: 64, fmt: int, unit: open}]}]}

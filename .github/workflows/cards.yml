@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [render.py, config.json, requirements.txt, fonts/**, .github/workflows/cards.yml]
+    paths: [render.py, frames.py, config.json, profile/**, requirements.txt, fonts/**, .github/workflows/cards.yml]
 
 permissions:
   contents: write
@@ -16,10 +16,13 @@ concurrency:
   group: cards
   cancel-in-progress: false
 
+env:
+  PEEPHOLE_IMAGE: ghcr.io/giovannirco/peephole:sha-22fc69e
+
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-python@v7.1.0
@@ -27,9 +30,24 @@ jobs:
           python-version: "3.14"
           cache: pip
       - run: pip install -r requirements.txt
-      - run: python render.py
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Start the Peephole hub with the profile config
+        run: |
+          docker run -d --name peephole -p 8080:8080 \
+            -v "$PWD/profile:/cfg:ro" \
+            -e PEEPHOLE_CONFIG=/cfg/peephole.yaml -e PEEPHOLE_LISTEN=0.0.0.0:8080 \
+            -e LAB_API="$(python -c 'import json; print(json.load(open("config.json"))["lab_api"])')" \
+            -e GITHUB_USER="$(python -c 'import json; print(json.load(open("config.json"))["login"])')" \
+            -e GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" \
+            "$PEEPHOLE_IMAGE"
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:8080/healthz >/dev/null && break; sleep 2; done
+          curl -sf http://127.0.0.1:8080/healthz
+      - name: Render the header card
+        run: python render.py
+      - name: Fetch the frames
+        run: python frames.py http://127.0.0.1:8080
+      - name: Hub log
+        if: always()
+        run: docker logs peephole 2>&1 | tail -40
       - name: Commit changed cards
         run: |
           git add cards
