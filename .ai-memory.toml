@@ -1,0 +1,6 @@
+workspace = "default"
+project = "giovannirco-giovannirco"
+
+[briefing]
+inject_on_session_start = "true"
+max_chars = 8000

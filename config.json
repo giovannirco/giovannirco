@@ -3,13 +3,12 @@
   "name": "Giovanni Coutinho",
   "role": "Staff Platform Engineer · Kubernetes, GitOps, observability",
   "lab_api": "https://orrery.giovanni.dev.br",
-  "clusters": 6,
-  "featured": {
-    "peephole": "A homelab on a 320x170 screen: a Rust hub, 22 plugins, generic ESP32 firmware",
-    "job-scout": "Job search pipeline with a 40-tool MCP server",
-    "platen": "Printer and scanner for people, scripts and AI agents",
-    "cpa-prometheus-plugin": "Prometheus metrics for an OpenAI-compatible proxy",
-    "agentic-homelab": "How the homelab is built and run with agents",
-    "giovanni-dev-br-public": "Three.js orrery with live homelab telemetry"
-  }
+  "featured": [
+    "job-scout",
+    "platen",
+    "cpa-prometheus-plugin",
+    "interview-skills",
+    "giovanni-dev-br-public",
+    "peephole"
+  ]
 }
