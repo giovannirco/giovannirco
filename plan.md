@@ -13,8 +13,10 @@ Place Agentic homelab beside the lab. Humanizer reviews all new public copy.
 
 Use warm charcoal/paper, amber, IBM Plex Sans/Mono and thin ledger rules. Native
 Markdown carries prose and links. Static SVGs carry the header, contribution
-history, fleet and operations readings. Each has light/dark and desktop/mobile
-compositions. Do not scale desktop text down into unreadable mobile labels.
+history, fleet, operations readings and GPU history. Each has desktop/mobile
+compositions and both palettes inside the SVG. Width-only picture sources avoid
+GitHub rewriting combined theme/width queries. Do not scale desktop text down
+into unreadable mobile labels.
 
 Fetch the sanitised public orrery feeds and GitHub GraphQL directly. Persist only
 the selected public aggregates with source and collection times. A failed feed
@@ -29,7 +31,7 @@ remain unknown. No private names, addresses, secrets or telemetry are published.
   only completely rendered output.
 - `README.template.md`: approved prose, project/product links and picture sources.
 - `config.json`: public identity, data origin and ordered repository names.
-- `test_profile.py`, `tests/fixtures/`: deterministic data/render/failure tests.
+- `test_profile.py`: deterministic data/render/failure tests and fixtures.
 - `.github/workflows/cards.yml`: checks, Python render, commit cards and README,
   six-hour schedule and unconditional scheduled-run self-enable.
 - `cards/`: generated SVGs and safe source snapshots. Remove the PNG/GIF frames,
@@ -37,16 +39,16 @@ remain unknown. No private names, addresses, secrets or telemetry are published.
 
 ## Execution
 
-- [ ] Add failing tests for readiness, missing/stale data, metric definitions,
+- [x] Add failing tests for readiness, missing/stale data, metric definitions,
   escaped SVG text, responsive sources, retained samples and template rendering.
-- [ ] Implement validation and rendering; verify tests, Ruff and type checking.
-- [ ] Check real public feeds and GraphQL; inspect desktop/mobile in both themes
+- [x] Implement validation and rendering; verify tests, Ruff and type checking.
+- [x] Check real public feeds and GraphQL; inspect desktop/mobile in both themes
   in a browser using GitHub-rendered Markdown.
-- [ ] Review the diff as another engineer; fix material findings and rerun checks.
-- [ ] Remove unnecessary code comments and old frame assets.
-- [ ] Commit the working renderer/content/workflow together as
+- [x] Review the diff as another engineer; fix material findings and rerun checks.
+- [x] Remove unnecessary code comments and old frame assets.
+- [x] Commit the working renderer/content/workflow together as
   `feat(profile): replace screen frames with a project-led engineering ledger`.
-- [ ] Update homelab content records, journal and ai-memory with actual evidence.
+- [x] Update homelab content records, journal and ai-memory with actual evidence.
 
 ## Verification
 
@@ -56,3 +58,11 @@ result scope, zero denominators, failed fetches, GraphQL errors and retained dat
 Use live sources only for the final render and browser inspection. Keep snapshots
 bounded and sanitized. Verify the six-hour cron, self-enable on failure, staged
 output scope and no container dependency. No additional application deployment.
+
+Delivered as `5a2c89e`; Action [40326230440](https://github.com/giovannirco/giovannirco/actions/runs/40326230440)
+passed all 25 tests, Ruff and mypy, rendered ten SVGs from eight sources and
+committed the refresh as `221403d`. Browser checks confirmed 840px desktop images
+and 308px mobile display, both themes, without horizontal overflow. Independent
+review passed after corrections for unknown readiness, GPU units, accessibility
+and missing-value text bounds. Related editorial records and journal were
+committed separately; `MAINTAINING.md` describes the ongoing workflow.
