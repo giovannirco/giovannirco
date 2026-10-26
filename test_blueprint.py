@@ -1,5 +1,6 @@
 import datetime as dt
 import json
+import re
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
@@ -45,10 +46,22 @@ def test_header_identity_is_visible_outside_animation_groups():
 
 
 def test_readme_includes_local_streak_picture_and_upstream_credit(outputs):
-    assert 'src="cards/streak.svg"' in outputs["README.md"]
-    assert 'srcset="cards/streak-mobile.svg"' in outputs["README.md"]
+    assert 'src="cards/streak.svg?v=' in outputs["README.md"]
+    assert 'srcset="cards/streak-mobile.svg?v=' in outputs["README.md"]
     assert "https://github.com/DenverCoder1/github-readme-streak-stats" in outputs["README.md"]
     assert "streak-stats.demolab.com" not in outputs["README.md"]
+
+
+def test_image_versions_change_with_content_and_are_stable_between_builds(outputs):
+    config = json.loads((ROOT / "config.json").read_text())
+    same = build_outputs({}, config, NOW)
+    changed = build_outputs({"github": Sample(data={"total": 42}, collected_at=STAMP)}, config, NOW)
+    pattern = r"cards/activity.svg\?v=([a-f0-9]+)"
+    original = re.search(pattern, outputs["README.md"])
+    assert original is not None
+    assert original.group(1) == re.search(pattern, same["README.md"]).group(1)
+    assert original.group(1) != re.search(pattern, changed["README.md"]).group(1)
+    assert re.search(r"cards/activity-mobile.svg\?v=[a-f0-9]+", outputs["README.md"])
 
 
 def test_cluster_diagram_labels_degraded_unknown_and_ready_without_private_names():

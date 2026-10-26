@@ -2,6 +2,7 @@
 
 import base64
 import datetime as dt
+import hashlib
 import io
 import json
 import os
@@ -419,11 +420,12 @@ def hardware(samples: dict[str, Sample], now: dt.datetime, mobile: bool) -> Svg:
     return svg
 
 
-def picture(name: str, alt: str) -> str:
+def picture(name: str, alt: str, content: str) -> str:
+    version = hashlib.sha256(content.encode()).hexdigest()[:12]
     return (
         f"<p>\n<picture>\n"
-        f'  <source media="(max-width: 600px)" srcset="cards/{name}-mobile.svg">\n'
-        f'  <img alt="{escape(alt)}" src="cards/{name}.svg" width="840">\n</picture>\n</p>'
+        f'  <source media="(max-width: 600px)" srcset="cards/{name}-mobile.svg?v={version}">\n'
+        f'  <img alt="{escape(alt)}" src="cards/{name}.svg?v={version}" width="840">\n</picture>\n</p>'
     )
 
 
@@ -479,7 +481,7 @@ def detail_tables(samples: dict[str, Sample], now: dt.datetime) -> str:
 
 def build_outputs(samples: dict[str, Sample], config: Payload, now: dt.datetime) -> dict[str, str]:
     outputs: dict[str, str] = {}
-    pictures: dict[str, str] = {}
+    titles: dict[str, str] = {}
     for mobile in (False, True):
         cards = {
             "header": header(config, mobile),
@@ -492,7 +494,11 @@ def build_outputs(samples: dict[str, Sample], config: Payload, now: dt.datetime)
         for name, svg in cards.items():
             suffix = "-mobile" if mobile else ""
             outputs[f"cards/{name}{suffix}.svg"] = svg.render("auto")
-            pictures[name] = picture(name, svg.title)
+            titles[name] = svg.title
+    pictures = {
+        name: picture(name, title, outputs[f"cards/{name}.svg"] + outputs[f"cards/{name}-mobile.svg"])
+        for name, title in titles.items()
+    }
     readme = (ROOT / "README.template.md").read_text()
     streak = ROOT / "cards/streak.svg"
     pictures["streak"] = picture(
@@ -500,6 +506,7 @@ def build_outputs(samples: dict[str, Sample], config: Payload, now: dt.datetime)
         streak_alt(streak)
         if streak.exists()
         else "GitHub total contributions, current daily streak and longest daily streak",
+        streak.read_text() + streak.with_stem("streak-mobile").read_text() if streak.exists() else "",
     )
     for name, value in pictures.items():
         readme = readme.replace("{{picture:" + name + "}}", value)

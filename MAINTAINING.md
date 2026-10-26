@@ -48,6 +48,8 @@ the GitHub page's theme. The README's picture sources select only by width, at
 Desktop cards are 840px; mobile compositions are 336px. Eight Python-rendered
 cards produce sixteen assets, including three project diagrams and the GPU
 history inside the expandable details. Two more assets contain streak statistics.
+Picture URLs include a digest of both compositions so GitHub's image cache does
+not keep an older card after its content changes.
 
 The pinned upstream Streak Stats Action generates its SVG locally with PHP 8.3
 and the workflow's own token. `streak.py` preserves the statistics and ring/flame,
