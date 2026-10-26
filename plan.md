@@ -66,3 +66,50 @@ and 308px mobile display, both themes, without horizontal overflow. Independent
 review passed after corrections for unknown readiness, GPU units, accessibility
 and missing-value text bounds. Related editorial records and journal were
 committed separately; `MAINTAINING.md` describes the ongoing workflow.
+
+## Animated systems blueprint
+
+Approved 2026-10-26 after the ledger delivery. Gio selected direction A and
+added DenverCoder1/github-readme-streak-stats. Preserve the project order and
+copy. Add a drawing sequence around the immediately visible identity, three
+project schematics, sampled cluster states and a contribution trace. Motion is
+illustrative, not a claim of streaming telemetry. Reduced motion shows the
+completed composition. Keep both themes and separate mobile layouts.
+
+Use the upstream Streak Stats Action pinned to a commit to generate locally with
+the workflow token. Match the warm palette, ensure mobile legibility and keep
+streak dates distinct from the rolling-year chart. Do not use a hosted endpoint.
+
+- `blueprint.py`: SVG drawing primitives, motion CSS and project schematics.
+- `render.py`: integrate header, fleet, activity and project drawings.
+- `test_blueprint.py`: accessible content, responsive bounds, sampled state and
+  reduced-motion contracts; browser checks verify actual animation.
+- Streak integration and tests: validate upstream output before publication;
+  adapt themes and width if necessary without changing upstream statistics.
+- Workflow: generate streak before the existing atomic publication step, retain
+  the six-hour schedule and independent self-enable job.
+- README template: insert three project illustrations and the streak card.
+
+- [x] Inspect the renderer, upstream Action and baseline (25 tests passing).
+- [x] Write failing tests, then implement the blueprint and streak integration.
+- [x] Run pytest, Ruff and mypy; render with public data.
+- [x] Verify motion and reduced motion, both themes and mobile on GitHub.
+- [x] Review spec and actual diff independently; fix material findings and test.
+- [ ] Commit as `feat(profile): animate the systems blueprint and add streak stats`.
+- [ ] Publish, verify the Action and update editorial records, journal and memory.
+
+The implementation uses subagent-driven development for the independent streak
+integration and review. All new prose receives the humanizer pass. Tests use
+fixtures; the final render and browser checks use live public data. Remove
+unnecessary comments and review only the final diff before publishing.
+
+Pre-publication verification: 49 tests passed, Ruff check/format passed and mypy
+passed for all four source files. All eight data sources refreshed. The pinned
+upstream PHP generator completed in 2.9 seconds; an injected historical-fetch
+error correctly blocked adaptation. Independent review passed after correcting
+outline fills that made the terminal and printer surfaces transparent. Browser
+checks confirmed animated image frames change, reduced-motion frames settle to
+an identical static composition, and the completed paths remain visible.
+Desktop images display at 840px; mobile images at 308px from 336px compositions,
+without horizontal overflow. Both themes follow GitHub despite the opposite OS
+preference.

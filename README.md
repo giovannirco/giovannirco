@@ -17,17 +17,38 @@ A self-hosted job-search desk that finds listings, tracks applications and helps
 
 <sub>TypeScript · updated 2026-10-23 · 2 stars</sub>
 
+<p>
+<picture>
+  <source media="(max-width: 600px)" srcset="cards/scout-mobile.svg">
+  <img alt="Job Scout workflow: listings, role research, then drafts for your review." src="cards/scout.svg" width="840">
+</picture>
+</p>
+
 ### [Platen](https://github.com/giovannirco/platen)
 
 Print and scan from a browser, scripts or an AI assistant, including PDFs your printer refuses to accept. One Go binary speaks the device protocols, renders PDFs and files scans in Paperless-ngx.
 
 <sub>Go · updated 2026-10-03 · 2 stars</sub>
 
+<p>
+<picture>
+  <source media="(max-width: 600px)" srcset="cards/platen-mobile.svg">
+  <img alt="Platen workflow: PDF documents, print and scan, and filing in Paperless-ngx." src="cards/platen.svg" width="840">
+</picture>
+</p>
+
 ### [CPA Prometheus](https://github.com/giovannirco/cpa-prometheus-plugin)
 
 Prometheus metrics for CLIProxyAPI traffic, token usage and provider quotas. It includes a Grafana dashboard and serves metrics through the proxy's authenticated management API.
 
 <sub>Go · updated 2026-09-23 · 3 stars</sub>
+
+<p>
+<picture>
+  <source media="(max-width: 600px)" srcset="cards/cpa-mobile.svg">
+  <img alt="CPA Prometheus workflow: requests become metrics for a Grafana dashboard." src="cards/cpa.svg" width="840">
+</picture>
+</p>
 
 ### [Interview skills](https://github.com/giovannirco/interview-skills)
 
@@ -56,11 +77,20 @@ A small window into the homelab on an ESP32 desk display. A Rust hub collects da
 <p>
 <picture>
   <source media="(max-width: 600px)" srcset="cards/activity-mobile.svg">
-  <img alt="18,202 GitHub contributions over the past year, grouped by week" src="cards/activity.svg" width="840">
+  <img alt="18,205 GitHub contributions over the past year, grouped by week" src="cards/activity.svg" width="840">
 </picture>
 </p>
 
-<sub>Weekly totals from GitHub's contribution calendar. Collected 2026-10-26 13:04 UTC.</sub>
+<sub>Weekly totals from GitHub's contribution calendar. Collected 2026-10-26 13:41 UTC.</sub>
+
+<p>
+<picture>
+  <source media="(max-width: 600px)" srcset="cards/streak-mobile.svg">
+  <img alt="GitHub Streak Stats. 20,977 total contributions (2017-12-15 - Present); current daily streak: 98 days (2026-07-21 - 2026-10-26); longest daily streak: 98 days (2026-07-21 - 2026-10-26). Collected 2026-10-26 13:39 UTC." src="cards/streak.svg" width="840">
+</picture>
+</p>
+
+<sub>Daily streaks and all-time contributions, generated with [GitHub Readme Streak Stats](https://github.com/DenverCoder1/github-readme-streak-stats). Dates use UTC.</sub>
 
 ## Products I'm building
 
@@ -81,7 +111,7 @@ At home I run six Talos clusters on Proxmox with the same rules: GitOps for ever
 <p>
 <picture>
   <source media="(max-width: 600px)" srcset="cards/fleet-mobile.svg">
-  <img alt="Homelab capacity and readiness. 6/6 clusters ready; 11/11 nodes ready; 480 pods; 78 Kubernetes vCPU; 150 namespaces" src="cards/fleet.svg" width="840">
+  <img alt="Homelab capacity and readiness. 6/6 clusters ready; 11/11 nodes ready; 481 pods; 78 Kubernetes vCPU; 150 namespaces. Cluster 01: ready. Cluster 02: ready. Cluster 03: ready. Cluster 04: ready. Cluster 05: ready. Cluster 06: ready" src="cards/fleet.svg" width="840">
 </picture>
 </p>
 
@@ -97,42 +127,42 @@ At home I run six Talos clusters on Proxmox with the same rules: GitOps for ever
 
 | Node | Ready | CPU | Memory | Pods |
 | :--- | :--- | ---: | ---: | ---: |
-| node-01 | yes | 26% | 76% | 63 |
-| node-02 | yes | 43% | 68% | 48 |
-| node-03 | yes | 17% | 47% | 34 |
+| node-01 | yes | 26% | 75% | 63 |
+| node-02 | yes | 42% | 66% | 48 |
+| node-03 | yes | 16% | 48% | 34 |
 | node-04 | yes | 14% | 39% | 36 |
-| node-05 | yes | 19% | 44% | 42 |
-| node-06 | yes | 23% | 69% | 16 |
-| node-07 | yes | 5% | 33% | 33 |
-| node-08 | yes | 13% | 79% | 62 |
-| node-09 | yes | 21% | 86% | 29 |
-| node-10 | yes | 21% | 68% | 52 |
-| node-11 | yes | 31% | 63% | 65 |
+| node-05 | yes | 18% | 44% | 42 |
+| node-06 | yes | 23% | 65% | 16 |
+| node-07 | yes | 4% | 33% | 34 |
+| node-08 | yes | 16% | 82% | 62 |
+| node-09 | yes | 21% | 87% | 29 |
+| node-10 | yes | 21% | 69% | 52 |
+| node-11 | yes | 30% | 63% | 65 |
 
-Sampled 2026-10-26 13:04 UTC
+Sampled 2026-10-26 13:41 UTC
 
 | Host | CPU | Memory | VMs up | Containers up |
 | :--- | ---: | ---: | ---: | ---: |
-| Compute-A | 12% | 92% | 2/3 | 2/2 |
-| Compute-B | 16% | 73% | 4/9 | 9/10 |
-| Compute-C | 39% | 81% | 15/15 | 8/13 |
+| Compute-A | 13% | 92% | 2/3 | 2/2 |
+| Compute-B | 15% | 73% | 4/9 | 9/10 |
+| Compute-C | 27% | 81% | 15/15 | 8/13 |
 
-Sampled 2026-10-26 13:04 UTC
+Sampled 2026-10-26 13:41 UTC
 
-Cilium: 2,549 flows/s; 0.8 drops/s. Endpoint enforcement counts ingress, egress or both; it does not measure default-deny coverage.
+Cilium: 2,203 flows/s; 0.8 drops/s. Endpoint enforcement counts ingress, egress or both; it does not measure default-deny coverage.
 
-Sampled 2026-10-26 13:04 UTC
+Sampled 2026-10-26 13:41 UTC
 
-WAN: 0.59 MB/s down, 3.37 MB/s up. Wi-Fi access points: 6/6; switches: 6/6; gateways: 1/1 online.
+WAN: 2.89 MB/s down, 21.31 MB/s up. Wi-Fi access points: 6/6; switches: 6/6; gateways: 1/1 online.
 
-Sampled 2026-10-26 13:03 UTC
+Sampled 2026-10-26 13:41 UTC
 
 Disk checks: 6/6 passing. Backup results are the latest recorded job results, not proof that every guest is covered or restores work.
 
 <p>
 <picture>
   <source media="(max-width: 600px)" srcset="cards/hardware-mobile.svg">
-  <img alt="GPU / SHORT HISTORY GPU-1 0% use · 37 °C · 10 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 13:03 UTC GPU-2 0% use · 39 °C · 25 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 13:03 UTC . Sampled 2026-10-26 13:03 UTC" src="cards/hardware.svg" width="840">
+  <img alt="GPU / SHORT HISTORY GPU-1 0% use · 37 °C · 9 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 13:40 UTC GPU-2 0% use · 39 °C · 25 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-26 13:40 UTC . Sampled 2026-10-26 13:40 UTC" src="cards/hardware.svg" width="840">
 </picture>
 </p>
 
@@ -143,13 +173,13 @@ Disk checks: 6/6 passing. Backup results are the latest recorded job results, no
 
 Readings come from the [orrery's public feeds](https://orrery.giovanni.dev.br/api/insight/lab). The cards refresh every six hours. Each date belongs to the source sample where available; storage has a collection time and a separate backup-event time. A failed refresh keeps the previous dated reading.
 
-- lab: Sampled 2026-10-26 13:04 UTC
-- nodes: Sampled 2026-10-26 13:04 UTC
-- proxmox: Sampled 2026-10-26 13:04 UTC
-- storage: Collected 2026-10-26 13:04 UTC
-- network: Sampled 2026-10-26 13:04 UTC
-- unifi: Sampled 2026-10-26 13:03 UTC
-- gpu: Sampled 2026-10-26 13:03 UTC
-- github: Collected 2026-10-26 13:04 UTC
+- lab: Sampled 2026-10-26 13:41 UTC
+- nodes: Sampled 2026-10-26 13:41 UTC
+- proxmox: Sampled 2026-10-26 13:41 UTC
+- storage: Collected 2026-10-26 13:41 UTC
+- network: Sampled 2026-10-26 13:41 UTC
+- unifi: Sampled 2026-10-26 13:41 UTC
+- gpu: Sampled 2026-10-26 13:40 UTC
+- github: Collected 2026-10-26 13:41 UTC
 
 </details>

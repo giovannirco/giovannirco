@@ -12,17 +12,23 @@ A self-hosted job-search desk that finds listings, tracks applications and helps
 
 <sub>{{meta:job-scout}}</sub>
 
+{{picture:scout}}
+
 ### [Platen](https://github.com/giovannirco/platen)
 
 Print and scan from a browser, scripts or an AI assistant, including PDFs your printer refuses to accept. One Go binary speaks the device protocols, renders PDFs and files scans in Paperless-ngx.
 
 <sub>{{meta:platen}}</sub>
 
+{{picture:platen}}
+
 ### [CPA Prometheus](https://github.com/giovannirco/cpa-prometheus-plugin)
 
 Prometheus metrics for CLIProxyAPI traffic, token usage and provider quotas. It includes a Grafana dashboard and serves metrics through the proxy's authenticated management API.
 
 <sub>{{meta:cpa-prometheus-plugin}}</sub>
+
+{{picture:cpa}}
 
 ### [Interview skills](https://github.com/giovannirco/interview-skills)
 
@@ -51,6 +57,10 @@ A small window into the homelab on an ESP32 desk display. A Rust hub collects da
 {{picture:activity}}
 
 <sub>Weekly totals from GitHub's contribution calendar. {{github_stamp}}.</sub>
+
+{{picture:streak}}
+
+<sub>Daily streaks and all-time contributions, generated with [GitHub Readme Streak Stats](https://github.com/DenverCoder1/github-readme-streak-stats). Dates use UTC.</sub>
 
 ## Products I'm building
 

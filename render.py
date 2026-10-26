@@ -15,6 +15,7 @@ from html import escape
 from fontTools import subset
 from fontTools.ttLib import TTFont
 
+import blueprint
 from profile_data import (
     GITHUB_QUERY,
     MODELS,
@@ -26,6 +27,7 @@ from profile_data import (
     ratio,
     request_json,
 )
+from streak import streak_alt
 
 ROOT = pathlib.Path(__file__).parent
 THEMES = {
@@ -63,6 +65,7 @@ class Svg:
         self.parts: list[str] = []
         self.text = ""
         self.used: set[tuple[str, int]] = set()
+        self.styles = ""
 
     def t(
         self,
@@ -94,11 +97,13 @@ class Svg:
         for mode in ("light", "dark") if theme == "auto" else (theme,):
             colors = THEMES[mode]
             palette = "".join(f".c-{name}{{fill:{value}}}" for name, value in colors.items())
+            palette += "".join(f".s-{name}{{stroke:{value}}}" for name, value in colors.items())
             palette += f".rule{{stroke:{colors['line']};stroke-width:1}}"
             palette += f".spark{{stroke:{colors['accent']};stroke-width:2;fill:none}}"
             style += (
                 "@media(prefers-color-scheme:dark){" + palette + "}" if theme == "auto" and mode == "dark" else palette
             )
+        style += self.styles
         return (
             f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.width}" height="{self.height}" '
             f'viewBox="0 0 {self.width} {self.height}" role="img" aria-label="{escape(self.title)}">'
@@ -205,16 +210,29 @@ def lab_rows(samples: dict[str, Sample], now: dt.datetime) -> list[Reading]:
 
 
 def header(config: Payload, mobile: bool) -> Svg:
-    svg = Svg(336 if mobile else 840, 186 if mobile else 172, f"{config['name']}, {config['role']}")
+    svg = Svg(336 if mobile else 840, 326 if mobile else 236, f"{config['name']}, {config['role']}")
     pad = 22 if mobile else 36
-    svg.t(pad, 36, "GIOVANNIRCO / ENGINEERING", 12, "mono", fill="accent")
-    svg.t(pad, 83 if mobile else 94, config["name"], 27 if mobile else 42, weight=600)
-    svg.t(pad, 116 if mobile else 129, "Staff Platform Engineer", 18 if mobile else 20, fill="muted")
+    svg.t(pad, 32, "giovannirco", 12, "mono", fill="accent")
+    svg.t(pad, 76 if mobile else 99, config["name"], 27 if mobile else 42, weight=600)
+    svg.t(pad, 109 if mobile else 135, "Staff Platform Engineer", 18 if mobile else 20, fill="muted")
     if mobile:
-        svg.t(pad, 145, "Kubernetes · GitOps · observability", 14, fill="muted")
+        svg.t(pad, 138, "Kubernetes · GitOps · observability", 14, fill="muted")
     else:
-        svg.t(804, 129, "Kubernetes / GitOps / observability", 13, "mono", fill="muted", anchor="end")
-    svg.rule(164 if mobile else 151, pad)
+        svg.t(pad, 211, "Kubernetes / GitOps / observability", 14, "mono", fill="muted")
+        svg.t(804, 211, "DESIGN → BUILD → RUN", 12, "mono", fill="accent", anchor="end")
+    svg.rule(155 if mobile else 184, pad)
+    blueprint.header_drawing(svg, mobile)
+    return svg
+
+
+def project_card(name: str, mobile: bool) -> Svg:
+    descriptions = {
+        "scout": "Job Scout workflow: listings, role research, then drafts for your review.",
+        "platen": "Platen workflow: PDF documents, print and scan, and filing in Paperless-ngx.",
+        "cpa": "CPA Prometheus workflow: requests become metrics for a Grafana dashboard.",
+    }
+    svg = Svg(336 if mobile else 840, 140 if mobile else 168, descriptions[name])
+    blueprint.project(svg, name, mobile)
     return svg
 
 
@@ -244,27 +262,29 @@ def fleet(samples: dict[str, Sample], now: dt.datetime, mobile: bool) -> Svg:
     )
     pad = 22 if mobile else 32
     svg.t(pad, 36, "FLEET / TALOS ON PROXMOX", 12, "mono", fill="accent")
+    offset = blueprint.clusters(svg, states, mobile)
+    svg.height += offset
     for index, (value, label) in enumerate(metrics):
         x = pad + (index % 2) * 157 if mobile else pad + index * 158
-        y = 91 + (index // 2) * 85 if mobile else 99
+        y = offset + (91 + (index // 2) * 85 if mobile else 99)
         svg.t(x, y, value, 30 if mobile else 34, weight=600)
         svg.t(x, y + 25, label, 13 if mobile else 14, fill="muted")
-    svg.rule(307 if mobile else 147, pad)
-    svg.t(pad, 333 if mobile else 174, "Ready = every node ready", 14, fill="muted")
+    svg.rule(offset + (307 if mobile else 147), pad)
+    svg.t(pad, offset + (333 if mobile else 174), "Ready = every node ready", 14, fill="muted")
     for index, source in enumerate(("nodes", "lab")):
         stamp = sample_stamp(samples.get(source), now)
         if mobile:
             stamp = stamp.replace(" · not refreshed", "").replace(" · older sample", "")
         svg.t(
             pad,
-            (360 if mobile else 201) + index * 20,
+            offset + (360 if mobile else 201) + index * 20,
             f"{source.title()}: {stamp}",
             11 if mobile else 12,
             "mono",
             fill="muted",
         )
     if mobile and any(samples.get(key) and samples[key].stale for key in ("nodes", "lab")):
-        svg.t(314, 280, "NOT REFRESHED", 11, "mono", fill="accent", anchor="end")
+        svg.t(314, offset + 280, "NOT REFRESHED", 11, "mono", fill="accent", anchor="end")
     return svg
 
 
@@ -301,17 +321,21 @@ def activity(samples: dict[str, Sample], now: dt.datetime, mobile: bool) -> Svg:
     svg.t(150 if mobile else 210, 71, "contributions", 15, fill="muted")
     weeks = data.get("weeks", [])
     if weeks:
+        svg.styles += blueprint.MOTION
         maximum = max(1, max(week["count"] for week in weeks))
         step = width / len(weeks)
+        points: list[str] = []
         for index, week in enumerate(weeks):
             height = 65 * week["count"] / maximum
+            points.append(f"{'L' if points else 'M'}{pad + index * step + max(1, step - 2) / 2:.1f} {157 - height:.1f}")
             svg.rect(
                 pad + index * step,
                 157 - max(1, height),
                 max(1, step - 2),
                 max(1, height),
-                "accent" if week["count"] else "line",
+                "line",
             )
+        blueprint.path(svg, " ".join(points), "trace s-accent", 'pathLength="1" data-history="weekly"')
         svg.t(pad, 181, weeks[0]["date"][:7], 12, "mono", fill="muted")
         svg.t(pad + width, 181, weeks[-1]["date"][:7], 12, "mono", fill="muted", anchor="end")
     else:
@@ -463,12 +487,20 @@ def build_outputs(samples: dict[str, Sample], config: Payload, now: dt.datetime)
             "operations": operations(samples, now, mobile),
             "activity": activity(samples, now, mobile),
             "hardware": hardware(samples, now, mobile),
+            **{name: project_card(name, mobile) for name in ("scout", "platen", "cpa")},
         }
         for name, svg in cards.items():
             suffix = "-mobile" if mobile else ""
             outputs[f"cards/{name}{suffix}.svg"] = svg.render("auto")
             pictures[name] = picture(name, svg.title)
     readme = (ROOT / "README.template.md").read_text()
+    streak = ROOT / "cards/streak.svg"
+    pictures["streak"] = picture(
+        "streak",
+        streak_alt(streak)
+        if streak.exists()
+        else "GitHub total contributions, current daily streak and longest daily streak",
+    )
     for name, value in pictures.items():
         readme = readme.replace("{{picture:" + name + "}}", value)
     github = data_for(samples, "github")

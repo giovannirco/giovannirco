@@ -297,7 +297,7 @@ def test_partial_outage_publishes_healthy_data_and_dated_retained_data(renderer_
     assert snapshot["github"]["stale"]
     assert snapshot["github"]["collected_at"] == STAMP
     assert snapshot["lab"]["data"]["pods"] == 42
-    assert len(list((renderer_workspace / "cards").glob("*.svg"))) == 10
+    assert len(list((renderer_workspace / "cards").glob("*.svg"))) == 16
 
 
 def test_template_failure_does_not_publish_partial_output(renderer_workspace, monkeypatch):

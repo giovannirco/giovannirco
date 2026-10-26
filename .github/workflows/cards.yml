@@ -31,13 +31,13 @@ jobs:
       - run: python -m pytest -q
       - run: ruff check .
       - run: ruff format --check .
-      - run: mypy render.py profile_data.py
+      - run: mypy render.py profile_data.py blueprint.py streak.py
 
   render:
     if: github.event_name != 'pull_request'
     needs: check
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 8
     permissions:
       contents: write
     steps:
@@ -47,6 +47,26 @@ jobs:
           python-version: "3.14"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Capture streak generator errors
+        run: |
+          mkdir -p "$RUNNER_TEMP/streak-php"
+          printf 'error_log = "%s"\n' "$RUNNER_TEMP/streak-errors.log" > "$RUNNER_TEMP/streak-php/streak.ini"
+      - name: Generate streak statistics
+        uses: DenverCoder1/github-readme-streak-stats@adbd07609bb771d3510a15ee2f3b31d5fbe5201d
+        with:
+          options: user=giovannirco&card_width=840&card_height=195&disable_animations=true&background=f6f2e8&border=f6f2e8&stroke=cbc1ad&ring=a9690f&fire=a9690f&currStreakNum=28251e&sideNums=28251e&currStreakLabel=a9690f&sideLabels=6a604f&dates=6a604f&date_format=Y-m-d&timezone=UTC
+          path: ${{ runner.temp }}/streak-upstream.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          DISABLE_CACHE: "true"
+          PHP_INI_SCAN_DIR: :${{ runner.temp }}/streak-php
+      - name: Fit streak statistics to the profile
+        run: |
+          php -r 'if (ini_get("error_log") !== getenv("STREAK_ERROR_LOG")) { exit(1); }'
+          python streak.py "$RUNNER_TEMP/streak-upstream.svg" --error-log "$STREAK_ERROR_LOG"
+        env:
+          PHP_INI_SCAN_DIR: :${{ runner.temp }}/streak-php
+          STREAK_ERROR_LOG: ${{ runner.temp }}/streak-errors.log
       - name: Render the profile
         run: python render.py
         env:
