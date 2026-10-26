@@ -95,8 +95,8 @@ streak dates distinct from the rolling-year chart. Do not use a hosted endpoint.
 - [x] Run pytest, Ruff and mypy; render with public data.
 - [x] Verify motion and reduced motion, both themes and mobile on GitHub.
 - [x] Review spec and actual diff independently; fix material findings and test.
-- [ ] Commit as `feat(profile): animate the systems blueprint and add streak stats`.
-- [ ] Publish, verify the Action and update editorial records, journal and memory.
+- [x] Commit as `feat(profile): animate the systems blueprint and add streak stats`.
+- [x] Publish, verify the Action and update editorial records, journal and memory.
 
 The implementation uses subagent-driven development for the independent streak
 integration and review. All new prose receives the humanizer pass. Tests use
@@ -118,3 +118,13 @@ Content digests in image URLs also prevent stale cached cards after a refresh.
 Desktop images display at 840px; mobile images at 308px from 336px compositions,
 without horizontal overflow. Both themes follow GitHub despite the opposite OS
 preference.
+
+Published in `cd359dc`, with cache and reduced-motion fixes in `ffb8ea5` and
+`11040a4`. Final Action [40334059314](https://github.com/giovannirco/giovannirco/actions/runs/40334059314)
+passed 51 tests, Ruff and mypy, refreshed all eight sources and committed thirty
+SVG assets as `c1b4356`. Its check job took 27 seconds and render job 25 seconds.
+Live GitHub verification confirmed the motion preference switches between the
+correct animated/static variants, and reduced-motion frames remain identical
+across fourteen seconds. Screenshots are in the private journal repository.
+Follow-up records are committed in homelab-revamp `599ac51` and homelab-content
+`0024dbc`; the decision, delivery and browser findings are saved in ai-memory.
