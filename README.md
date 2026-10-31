@@ -1,9 +1,9 @@
 <p>
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/header-mobile-still.svg?v=04c162ff5888">
-  <source media="(prefers-reduced-motion: reduce)" srcset="cards/header-still.svg?v=04c162ff5888">
-  <source media="(max-width: 600px)" srcset="cards/header-mobile.svg?v=04c162ff5888">
-  <img alt="Giovanni Coutinho, Staff Platform Engineer · Kubernetes, GitOps, observability" src="cards/header.svg?v=04c162ff5888" width="840">
+  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/header-mobile-still.svg?v=0fd6ce519ca6">
+  <source media="(prefers-reduced-motion: reduce)" srcset="cards/header-still.svg?v=0fd6ce519ca6">
+  <source media="(max-width: 600px)" srcset="cards/header-mobile.svg?v=0fd6ce519ca6">
+  <img alt="Giovanni Coutinho, Staff Platform Engineer · Kubernetes, GitOps, observability" src="cards/header.svg?v=0fd6ce519ca6" width="840">
 </picture>
 </p>
 
@@ -21,10 +21,10 @@ A self-hosted job-search desk that finds listings, tracks applications and helps
 
 <p>
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/scout-mobile-still.svg?v=ce26e1afe106">
-  <source media="(prefers-reduced-motion: reduce)" srcset="cards/scout-still.svg?v=ce26e1afe106">
-  <source media="(max-width: 600px)" srcset="cards/scout-mobile.svg?v=ce26e1afe106">
-  <img alt="Job Scout workflow: listings, role research, then drafts for your review." src="cards/scout.svg?v=ce26e1afe106" width="840">
+  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/scout-mobile-still.svg?v=be4bd4c01027">
+  <source media="(prefers-reduced-motion: reduce)" srcset="cards/scout-still.svg?v=be4bd4c01027">
+  <source media="(max-width: 600px)" srcset="cards/scout-mobile.svg?v=be4bd4c01027">
+  <img alt="Job Scout workflow: listings, role research, then drafts for your review." src="cards/scout.svg?v=be4bd4c01027" width="840">
 </picture>
 </p>
 
@@ -36,10 +36,10 @@ Print and scan from a browser, scripts or an AI assistant, including PDFs your p
 
 <p>
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/platen-mobile-still.svg?v=df3ab7cc4a69">
-  <source media="(prefers-reduced-motion: reduce)" srcset="cards/platen-still.svg?v=df3ab7cc4a69">
-  <source media="(max-width: 600px)" srcset="cards/platen-mobile.svg?v=df3ab7cc4a69">
-  <img alt="Platen workflow: PDF documents, print and scan, and filing in Paperless-ngx." src="cards/platen.svg?v=df3ab7cc4a69" width="840">
+  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/platen-mobile-still.svg?v=e463c889cb1d">
+  <source media="(prefers-reduced-motion: reduce)" srcset="cards/platen-still.svg?v=e463c889cb1d">
+  <source media="(max-width: 600px)" srcset="cards/platen-mobile.svg?v=e463c889cb1d">
+  <img alt="Platen workflow: PDF documents, print and scan, and filing in Paperless-ngx." src="cards/platen.svg?v=e463c889cb1d" width="840">
 </picture>
 </p>
 
@@ -51,10 +51,10 @@ Prometheus metrics for CLIProxyAPI traffic, token usage and provider quotas. It 
 
 <p>
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/cpa-mobile-still.svg?v=31b9e3633f72">
-  <source media="(prefers-reduced-motion: reduce)" srcset="cards/cpa-still.svg?v=31b9e3633f72">
-  <source media="(max-width: 600px)" srcset="cards/cpa-mobile.svg?v=31b9e3633f72">
-  <img alt="CPA Prometheus workflow: requests become metrics for a Grafana dashboard." src="cards/cpa.svg?v=31b9e3633f72" width="840">
+  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/cpa-mobile-still.svg?v=59c5e3afd9bb">
+  <source media="(prefers-reduced-motion: reduce)" srcset="cards/cpa-still.svg?v=59c5e3afd9bb">
+  <source media="(max-width: 600px)" srcset="cards/cpa-mobile.svg?v=59c5e3afd9bb">
+  <img alt="CPA Prometheus workflow: requests become metrics for a Grafana dashboard." src="cards/cpa.svg?v=59c5e3afd9bb" width="840">
 </picture>
 </p>
 
@@ -84,19 +84,19 @@ A small window into the homelab on an ESP32 desk display. A Rust hub collects da
 
 <p>
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/activity-mobile-still.svg?v=e35d2da74b77">
-  <source media="(prefers-reduced-motion: reduce)" srcset="cards/activity-still.svg?v=e35d2da74b77">
-  <source media="(max-width: 600px)" srcset="cards/activity-mobile.svg?v=e35d2da74b77">
-  <img alt="18,488 GitHub contributions over the past year, grouped by week" src="cards/activity.svg?v=e35d2da74b77" width="840">
+  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/activity-mobile-still.svg?v=f5470ec1b7e6">
+  <source media="(prefers-reduced-motion: reduce)" srcset="cards/activity-still.svg?v=f5470ec1b7e6">
+  <source media="(max-width: 600px)" srcset="cards/activity-mobile.svg?v=f5470ec1b7e6">
+  <img alt="18,509 GitHub contributions over the past year, grouped by week" src="cards/activity.svg?v=f5470ec1b7e6" width="840">
 </picture>
 </p>
 
-<sub>Weekly totals from GitHub's contribution calendar. Collected 2026-10-31 12:31 UTC.</sub>
+<sub>Weekly totals from GitHub's contribution calendar. Collected 2026-10-31 21:36 UTC.</sub>
 
 <p>
 <picture>
-  <source media="(max-width: 600px)" srcset="cards/streak-mobile.svg?v=36cdd9d350ac">
-  <img alt="GitHub Streak Stats. 21,260 total contributions (2017-12-15 - Present); current daily streak: 103 days (2026-07-21 - 2026-10-31); longest daily streak: 103 days (2026-07-21 - 2026-10-31). Collected 2026-10-31 12:31 UTC." src="cards/streak.svg?v=36cdd9d350ac" width="840">
+  <source media="(max-width: 600px)" srcset="cards/streak-mobile.svg?v=76e686b967ea">
+  <img alt="GitHub Streak Stats. 21,281 total contributions (2017-12-15 - Present); current daily streak: 103 days (2026-07-21 - 2026-10-31); longest daily streak: 103 days (2026-07-21 - 2026-10-31). Collected 2026-10-31 21:36 UTC." src="cards/streak.svg?v=76e686b967ea" width="840">
 </picture>
 </p>
 
@@ -120,17 +120,17 @@ At home I run six Talos clusters on Proxmox with the same rules: GitOps for ever
 
 <p>
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/fleet-mobile-still.svg?v=74e0ea7f1dd4">
-  <source media="(prefers-reduced-motion: reduce)" srcset="cards/fleet-still.svg?v=74e0ea7f1dd4">
-  <source media="(max-width: 600px)" srcset="cards/fleet-mobile.svg?v=74e0ea7f1dd4">
-  <img alt="Homelab capacity and readiness. 6/6 clusters ready; 12/12 nodes ready; 489 pods; 84 Kubernetes vCPU; 150 namespaces. Cluster 01: ready. Cluster 02: ready. Cluster 03: ready. Cluster 04: ready. Cluster 05: ready. Cluster 06: ready" src="cards/fleet.svg?v=74e0ea7f1dd4" width="840">
+  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="cards/fleet-mobile-still.svg?v=93c3aff2e128">
+  <source media="(prefers-reduced-motion: reduce)" srcset="cards/fleet-still.svg?v=93c3aff2e128">
+  <source media="(max-width: 600px)" srcset="cards/fleet-mobile.svg?v=93c3aff2e128">
+  <img alt="Homelab capacity and readiness. 6/6 clusters ready; 12/12 nodes ready; 488 pods; 84 Kubernetes vCPU; 150 namespaces. Cluster 01: ready. Cluster 02: ready. Cluster 03: ready. Cluster 04: ready. Cluster 05: ready. Cluster 06: ready" src="cards/fleet.svg?v=93c3aff2e128" width="840">
 </picture>
 </p>
 
 <p>
 <picture>
-  <source media="(max-width: 600px)" srcset="cards/operations-mobile.svg?v=e84b6d4bcac7">
-  <img alt="Compute: 3/3 hosts up. Proxmox · virtual machines and containers; Network policy: 285/291 endpoints. Ingress or egress policy enforced; Backups: 29/29 recorded results OK. Latest result 2026-10-31 07:46 UTC; Network: 13/13 devices online. WAN latency 10 ms; GPU: 2 reporting · 48 GiB VRAM. Current readings and short history below" src="cards/operations.svg?v=e84b6d4bcac7" width="840">
+  <source media="(max-width: 600px)" srcset="cards/operations-mobile.svg?v=c296b167cf5e">
+  <img alt="Compute: 3/3 hosts up. Proxmox · virtual machines and containers; Network policy: 285/291 endpoints. Ingress or egress policy enforced; Backups: 29/29 recorded results OK. Latest result 2026-10-31 07:46 UTC; Network: 11/13 devices online. WAN latency 10 ms; GPU: 2 reporting · 48 GiB VRAM. Current readings and short history below" src="cards/operations.svg?v=c296b167cf5e" width="840">
 </picture>
 </p>
 
@@ -139,43 +139,43 @@ At home I run six Talos clusters on Proxmox with the same rules: GitOps for ever
 
 | Node | Ready | CPU | Memory | Pods |
 | :--- | :--- | ---: | ---: | ---: |
-| node-01 | yes | 25% | 81% | 63 |
+| node-01 | yes | 26% | 80% | 63 |
 | node-02 | yes | 43% | 74% | 48 |
-| node-03 | yes | 17% | 52% | 36 |
-| node-04 | yes | 15% | 45% | 38 |
-| node-05 | yes | 18% | 45% | 38 |
-| node-06 | yes | 26% | 73% | 17 |
-| node-07 | yes | 9% | 34% | 31 |
-| node-08 | yes | 12% | 87% | 62 |
-| node-09 | yes | 26% | 92% | 32 |
+| node-03 | yes | 17% | 53% | 36 |
+| node-04 | yes | 15% | 44% | 38 |
+| node-05 | yes | 17% | 45% | 38 |
+| node-06 | yes | 24% | 72% | 17 |
+| node-07 | yes | 5% | 34% | 30 |
+| node-08 | yes | 11% | 87% | 62 |
+| node-09 | yes | 22% | 91% | 32 |
 | node-10 | yes | 3% | 15% | 7 |
-| node-11 | yes | 20% | 75% | 52 |
-| node-12 | yes | 30% | 66% | 65 |
+| node-11 | yes | 19% | 72% | 52 |
+| node-12 | yes | 31% | 67% | 65 |
 
-Sampled 2026-10-31 12:31 UTC
+Sampled 2026-10-31 21:36 UTC
 
 | Host | CPU | Memory | VMs up | Containers up |
 | :--- | ---: | ---: | ---: | ---: |
-| Compute-A | 8% | 92% | 2/3 | 2/2 |
-| Compute-B | 18% | 71% | 4/9 | 9/10 |
-| Compute-C | 33% | 89% | 16/16 | 8/13 |
+| Compute-A | 10% | 92% | 2/3 | 2/2 |
+| Compute-B | 15% | 74% | 4/9 | 9/10 |
+| Compute-C | 32% | 89% | 16/16 | 8/13 |
 
-Sampled 2026-10-31 12:31 UTC
+Sampled 2026-10-31 21:36 UTC
 
-Cilium: 2,066 flows/s; 0.8 drops/s. Endpoint enforcement counts ingress, egress or both; it does not measure default-deny coverage.
+Cilium: 1,711 flows/s; 0.8 drops/s. Endpoint enforcement counts ingress, egress or both; it does not measure default-deny coverage.
 
-Sampled 2026-10-31 12:31 UTC
+Sampled 2026-10-31 21:36 UTC
 
-WAN: 3.08 MB/s down, 2.42 MB/s up. Wi-Fi access points: 6/6; switches: 6/6; gateways: 1/1 online.
+WAN: 0.30 MB/s down, 7.88 MB/s up. Wi-Fi access points: 5/6; switches: 5/6; gateways: 1/1 online.
 
-Sampled 2026-10-31 12:30 UTC
+Sampled 2026-10-31 21:35 UTC
 
 Disk checks: 6/6 passing. Backup results are the latest recorded job results, not proof that every guest is covered or restores work.
 
 <p>
 <picture>
-  <source media="(max-width: 600px)" srcset="cards/hardware-mobile.svg?v=711c52dd88f5">
-  <img alt="GPU / SHORT HISTORY GPU-1 0% use · 36 °C · 9 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-31 12:30 UTC GPU-2 0% use · 32 °C · 14 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-31 12:30 UTC . Sampled 2026-10-31 12:30 UTC" src="cards/hardware.svg?v=711c52dd88f5" width="840">
+  <source media="(max-width: 600px)" srcset="cards/hardware-mobile.svg?v=cb5f90c91ba1">
+  <img alt="GPU / SHORT HISTORY GPU-1 0% use · 36 °C · 9 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-31 21:35 UTC GPU-2 0% use · 32 °C · 14 W VRAM 1% of 24 GiB 14 min · 0–100% scale Sampled 2026-10-31 21:35 UTC . Sampled 2026-10-31 21:35 UTC" src="cards/hardware.svg?v=cb5f90c91ba1" width="840">
 </picture>
 </p>
 
@@ -186,13 +186,13 @@ Disk checks: 6/6 passing. Backup results are the latest recorded job results, no
 
 Readings come from the [orrery's public feeds](https://orrery.giovanni.dev.br/api/insight/lab). The cards refresh every six hours. Each date belongs to the source sample where available; storage has a collection time and a separate backup-event time. A failed refresh keeps the previous dated reading.
 
-- lab: Sampled 2026-10-31 12:31 UTC
-- nodes: Sampled 2026-10-31 12:31 UTC
-- proxmox: Sampled 2026-10-31 12:31 UTC
-- storage: Collected 2026-10-31 12:31 UTC
-- network: Sampled 2026-10-31 12:31 UTC
-- unifi: Sampled 2026-10-31 12:30 UTC
-- gpu: Sampled 2026-10-31 12:30 UTC
-- github: Collected 2026-10-31 12:31 UTC
+- lab: Sampled 2026-10-31 21:36 UTC
+- nodes: Sampled 2026-10-31 21:36 UTC
+- proxmox: Sampled 2026-10-31 21:36 UTC
+- storage: Collected 2026-10-31 21:36 UTC
+- network: Sampled 2026-10-31 21:36 UTC
+- unifi: Sampled 2026-10-31 21:35 UTC
+- gpu: Sampled 2026-10-31 21:35 UTC
+- github: Collected 2026-10-31 21:36 UTC
 
 </details>
