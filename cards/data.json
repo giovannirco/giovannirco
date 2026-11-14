@@ -3,12 +3,12 @@
     "data": {
       "clusters": 3,
       "nodes": 7,
-      "pods": 263,
+      "pods": 264,
       "cores": 60,
       "namespaces": 96,
-      "updatedAt": "2026-11-13T19:43:54.051Z"
+      "updatedAt": "2026-11-14T06:24:45.502Z"
     },
-    "collected_at": "2026-11-13T19:43:53.013521+00:00",
+    "collected_at": "2026-11-14T06:24:44.783975+00:00",
     "stale": false
   },
   "nodes": {
@@ -29,8 +29,8 @@
           "cluster": "cluster-7248309b5e2a",
           "ready": true,
           "cores": 4,
-          "cpu": 0.2697,
-          "memoryUsed": 11724947456.0,
+          "cpu": 0.2613,
+          "memoryUsed": 11813003264.0,
           "memoryTotal": 14567473152.0,
           "pods": 63
         },
@@ -38,8 +38,8 @@
           "cluster": "cluster-08fc0bf645e3",
           "ready": true,
           "cores": 2,
-          "cpu": 0.2854,
-          "memoryUsed": 4578566144.0,
+          "cpu": 0.2644,
+          "memoryUsed": 4657889280.0,
           "memoryTotal": 6125051904.0,
           "pods": 17
         },
@@ -47,17 +47,17 @@
           "cluster": "cluster-08fc0bf645e3",
           "ready": true,
           "cores": 32,
-          "cpu": 0.0823,
-          "memoryUsed": 18597728256.0,
+          "cpu": 0.1329,
+          "memoryUsed": 19922759680.0,
           "memoryTotal": 33460805632.0,
-          "pods": 55
+          "pods": 56
         },
         {
           "cluster": "cluster-08fc0bf645e3",
           "ready": true,
           "cores": 8,
-          "cpu": 0.1848,
-          "memoryUsed": 12343980032.0,
+          "cpu": 0.1992,
+          "memoryUsed": 12382720000.0,
           "memoryTotal": 14565126144.0,
           "pods": 60
         },
@@ -83,15 +83,15 @@
           "cluster": "cluster-58ee00072efb",
           "ready": true,
           "cores": 4,
-          "cpu": 0.2114,
-          "memoryUsed": 9352650752.0,
+          "cpu": 0.2096,
+          "memoryUsed": 9368371200.0,
           "memoryTotal": 12453560320.0,
           "pods": 52
         }
       ],
-      "updatedAt": "2026-11-13T19:43:53.987Z"
+      "updatedAt": "2026-11-14T06:24:45.582Z"
     },
-    "collected_at": "2026-11-13T19:43:53.013521+00:00",
+    "collected_at": "2026-11-14T06:24:44.783975+00:00",
     "stale": false
   },
   "proxmox": {
@@ -100,30 +100,30 @@
         {
           "reporting": true,
           "up": true,
-          "cpu": 0.1452,
+          "cpu": 0.1561,
           "cores": 20,
-          "memoryUsed": 30175350784.0,
+          "memoryUsed": 29945434112.0,
           "memoryTotal": 33401532416.0,
-          "uptimeSeconds": 934314.0,
+          "uptimeSeconds": 972754.0,
           "vmsTotal": 3,
           "vmsRunning": 2,
           "containersTotal": 2,
           "containersRunning": 2,
-          "updatedAt": "2026-11-13T19:43:26.490Z"
+          "updatedAt": "2026-11-14T06:24:06.484Z"
         },
         {
           "reporting": true,
           "up": true,
-          "cpu": 0.1983,
+          "cpu": 0.1711,
           "cores": 12,
-          "memoryUsed": 34311036928.0,
+          "memoryUsed": 36043366400.0,
           "memoryTotal": 49880838144.0,
-          "uptimeSeconds": 934266.0,
+          "uptimeSeconds": 972746.0,
           "vmsTotal": 9,
           "vmsRunning": 4,
           "containersTotal": 12,
           "containersRunning": 11,
-          "updatedAt": "2026-11-13T19:42:32.752Z"
+          "updatedAt": "2026-11-14T06:23:47.754Z"
         },
         {
           "reporting": false,
@@ -140,9 +140,9 @@
           "updatedAt": null
         }
       ],
-      "updatedAt": "2026-11-13T19:43:53.955Z"
+      "updatedAt": "2026-11-14T06:24:45.484Z"
     },
-    "collected_at": "2026-11-13T19:43:53.013521+00:00",
+    "collected_at": "2026-11-14T06:24:44.783975+00:00",
     "stale": false
   },
   "storage": {
@@ -152,20 +152,20 @@
       "guests": 26,
       "backupRuns": 26,
       "backupPassed": 26,
-      "newestBackup": "2026-11-13T07:50:08.053Z"
+      "newestBackup": "2026-11-14T05:47:52.445Z"
     },
-    "collected_at": "2026-11-13T19:43:53.013521+00:00",
+    "collected_at": "2026-11-14T06:24:44.783975+00:00",
     "stale": false
   },
   "network": {
     "data": {
-      "flowsPerSecond": 1264.4,
-      "dropsPerSecond": 5.0,
+      "flowsPerSecond": 1485.0,
+      "dropsPerSecond": 4.9,
       "enforcedEndpoints": 154,
       "endpoints": 157,
-      "updatedAt": "2026-11-13T19:43:54.106Z"
+      "updatedAt": "2026-11-14T06:24:45.561Z"
     },
-    "collected_at": "2026-11-13T19:43:53.013521+00:00",
+    "collected_at": "2026-11-14T06:24:44.783975+00:00",
     "stale": false
   },
   "unifi": {
@@ -181,11 +181,11 @@
       "gatewaysOnline": 1,
       "internetUp": true,
       "latencyMs": 10.0,
-      "downloadBytes": 327597.0,
-      "uploadBytes": 5283898.0,
-      "updatedAt": "2026-11-13T19:43:21.000Z"
+      "downloadBytes": 565702.0,
+      "uploadBytes": 2406766.0,
+      "updatedAt": "2026-11-14T06:23:49.000Z"
     },
-    "collected_at": "2026-11-13T19:43:53.013521+00:00",
+    "collected_at": "2026-11-14T06:24:44.783975+00:00",
     "stale": false
   },
   "gpu": {
@@ -196,69 +196,69 @@
           "usage": 0.0,
           "memoryUsed": 278921216.0,
           "memoryTotal": 25769803776.0,
-          "temperature": 49.0,
-          "power": 22.44,
+          "temperature": 45.0,
+          "power": 21.92,
           "powerLimit": 200.0,
-          "updatedAt": "2026-11-13T19:43:20.329Z",
+          "updatedAt": "2026-11-14T06:24:20.329Z",
           "history": [
             [
-              1794598194.0,
+              1794636645.0,
               0.0
             ],
             [
-              1794598254.0,
+              1794636705.0,
               0.0
             ],
             [
-              1794598314.0,
+              1794636765.0,
               0.0
             ],
             [
-              1794598374.0,
+              1794636825.0,
               0.0
             ],
             [
-              1794598434.0,
+              1794636885.0,
               0.0
             ],
             [
-              1794598494.0,
+              1794636945.0,
               0.0
             ],
             [
-              1794598554.0,
+              1794637005.0,
               0.0
             ],
             [
-              1794598614.0,
+              1794637065.0,
               0.0
             ],
             [
-              1794598674.0,
+              1794637125.0,
               0.0
             ],
             [
-              1794598734.0,
+              1794637185.0,
               0.0
             ],
             [
-              1794598794.0,
+              1794637245.0,
               0.0
             ],
             [
-              1794598854.0,
+              1794637305.0,
               0.0
             ],
             [
-              1794598914.0,
+              1794637365.0,
               0.0
             ],
             [
-              1794598974.0,
+              1794637425.0,
               0.0
             ],
             [
-              1794599034.0,
+              1794637485.0,
               0.0
             ]
           ]
@@ -268,78 +268,78 @@
           "usage": 0.0,
           "memoryUsed": 283115520.0,
           "memoryTotal": 25769803776.0,
-          "temperature": 35.0,
-          "power": 14.22,
+          "temperature": 31.0,
+          "power": 14.59,
           "powerLimit": 250.0,
-          "updatedAt": "2026-11-13T19:43:20.329Z",
+          "updatedAt": "2026-11-14T06:24:20.329Z",
           "history": [
             [
-              1794598194.0,
+              1794636645.0,
               0.0
             ],
             [
-              1794598254.0,
+              1794636705.0,
               0.0
             ],
             [
-              1794598314.0,
+              1794636765.0,
               0.0
             ],
             [
-              1794598374.0,
+              1794636825.0,
               0.0
             ],
             [
-              1794598434.0,
+              1794636885.0,
               0.0
             ],
             [
-              1794598494.0,
+              1794636945.0,
               0.0
             ],
             [
-              1794598554.0,
+              1794637005.0,
               0.0
             ],
             [
-              1794598614.0,
+              1794637065.0,
               0.0
             ],
             [
-              1794598674.0,
+              1794637125.0,
               0.0
             ],
             [
-              1794598734.0,
+              1794637185.0,
               0.0
             ],
             [
-              1794598794.0,
+              1794637245.0,
               0.0
             ],
             [
-              1794598854.0,
+              1794637305.0,
               0.0
             ],
             [
-              1794598914.0,
+              1794637365.0,
               0.0
             ],
             [
-              1794598974.0,
+              1794637425.0,
               0.0
             ],
             [
-              1794599034.0,
+              1794637485.0,
               0.0
             ]
           ]
         }
       ],
-      "start": 1794598134.0,
-      "end": 1794599034.0
+      "start": 1794636585.0,
+      "end": 1794637485.0
     },
-    "collected_at": "2026-11-13T19:43:53.013521+00:00",
+    "collected_at": "2026-11-14T06:24:44.783975+00:00",
     "stale": false
   },
   "github": {
@@ -347,7 +347,7 @@
       "repos": {
         "platen": {
           "stars": 4,
-          "pushed_at": "2026-11-12T12:02:35Z",
+          "pushed_at": "2026-11-14T03:23:07Z",
           "language": "Go"
         },
         "cpa-prometheus-plugin": {
@@ -376,7 +376,7 @@
           "language": "JavaScript"
         }
       },
-      "total": 19462,
+      "total": 19468,
       "weeks": [
         {
           "date": "2025-11-09",
@@ -588,11 +588,11 @@
         },
         {
           "date": "2026-11-08",
-          "count": 792
+          "count": 798
         }
       ]
     },
-    "collected_at": "2026-11-13T19:43:53.013521+00:00",
+    "collected_at": "2026-11-14T06:24:44.783975+00:00",
     "stale": false
   }
 }
