@@ -9,7 +9,7 @@
       "updatedAt": "2026-11-27T08:35:21.766Z"
     },
     "collected_at": "2026-11-27T08:35:20.860015+00:00",
-    "stale": false
+    "stale": true
   },
   "nodes": {
     "data": {
@@ -92,7 +92,7 @@
       "updatedAt": "2026-11-27T08:35:21.964Z"
     },
     "collected_at": "2026-11-27T08:35:20.860015+00:00",
-    "stale": false
+    "stale": true
   },
   "proxmox": {
     "data": {
@@ -143,7 +143,7 @@
       "updatedAt": "2026-11-27T08:35:21.759Z"
     },
     "collected_at": "2026-11-27T08:35:20.860015+00:00",
-    "stale": false
+    "stale": true
   },
   "storage": {
     "data": {
@@ -155,7 +155,7 @@
       "newestBackup": "2026-11-27T07:47:36.052Z"
     },
     "collected_at": "2026-11-27T08:35:20.860015+00:00",
-    "stale": false
+    "stale": true
   },
   "network": {
     "data": {
@@ -166,7 +166,7 @@
       "updatedAt": "2026-11-27T08:35:21.916Z"
     },
     "collected_at": "2026-11-27T08:35:20.860015+00:00",
-    "stale": false
+    "stale": true
   },
   "unifi": {
     "data": {
@@ -186,7 +186,7 @@
       "updatedAt": "2026-11-27T08:34:10.000Z"
     },
     "collected_at": "2026-11-27T08:35:20.860015+00:00",
-    "stale": false
+    "stale": true
   },
   "gpu": {
     "data": {
@@ -340,7 +340,7 @@
       "end": 1795768521.0
     },
     "collected_at": "2026-11-27T08:35:20.860015+00:00",
-    "stale": false
+    "stale": true
   },
   "github": {
     "data": {
@@ -351,7 +351,7 @@
           "language": "Go"
         },
         "cpa-prometheus-plugin": {
-          "stars": 4,
+          "stars": 5,
           "pushed_at": "2026-11-12T12:02:37Z",
           "language": "Go"
         },
@@ -592,7 +592,7 @@
         }
       ]
     },
-    "collected_at": "2026-11-27T08:35:20.860015+00:00",
+    "collected_at": "2026-11-27T21:17:54.538893+00:00",
     "stale": false
   }
 }
